@@ -50,6 +50,26 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+app.get("/profile", (req, res) => {
+  res.send("profile");
+});
+
+app.get("/new_listing", (req, res) => {
+  res.send("new_listing");
+});
+
+app.get("/items", (req, res) => {
+  res.send("items");
+});
+
+app.get("/furniture", (req, res) => {
+  res.send("furniture");
+});
+
+app.get("/messages", (req, res) => {
+  res.send("messages");
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
