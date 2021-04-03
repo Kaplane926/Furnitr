@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%- include('partials/_header') %>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <title>Home Page</title>
+    <%- include('partials/_header') %>
+    <title>Profile</title>
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -14,25 +14,17 @@
   </head>
 
   <body>
-    <h1>Meet hot single beds near you!</h1>
+    <h1>Insert EJS Variable Here's Profile</h1>
     <main>
-      <div class="furniture image" >
-        <img src="/images/sexy_couch_potato.png">
-    </div>
-    <a>
-      <p>
-        Description about furniture pulled from a database, displayed with EJS
-      </p>
+      <div class="profile pic">
+        <img src="/images/cat_dad_selfie.png">
+      </div>
       <ul>
-        <li>Location pulled from database</li>
-        <li>Dimensions pulled from database</li>
-        <li>Seller pulled from database (little profile image with a link?)</li>
+        <li>Description</li>
+        <li>Rating</li>
+        <li>Listings</li>
       </ul>
-    </a>
-    <div class="button">
-      <button id="Right" type="submit">Smash</button>
-      <button id="Left" type="submit">Pass</button>
-    </div>
+      <button class="message" type="submit">Message</button>
     </main>
   </body>
 </html>
