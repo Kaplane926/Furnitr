@@ -46,29 +46,50 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
+
+
 app.get("/", (req, res) => {
   res.render("index");
 });
+
+
 
 app.get("/profile", (req, res) => {
   res.send("profile");
 });
 
+app.post("/profile", (req, res) => {
+  res.send("profile");
+});
+
+
 app.get("/new_listing", (req, res) => {
   res.send("new_listing");
 });
+
+app.post('/new_listing', (req, res) => {
+
+
+});
+
 
 app.get("/items", (req, res) => {
   res.send("items");
 });
 
+
+
 app.get("/furniture", (req, res) => {
   res.send("furniture");
 });
 
+
+
 app.get("/messages", (req, res) => {
   res.send("messages");
 });
+
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
