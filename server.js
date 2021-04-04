@@ -52,6 +52,16 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+app.post("/", (req, res) => {
+  const user = user;
+  if (user) {
+    const templateVars = {
+     items: items[req.items],
+     user: users[req.users]
+    }
+    return res.render("index", templateVars);
+  }
+});
 
 
 app.get("/profile", (req, res) => {
@@ -59,7 +69,14 @@ app.get("/profile", (req, res) => {
 });
 
 app.post("/profile", (req, res) => {
-  res.send("profile");
+  const user = user;
+  if (user) {
+    const templateVars = {
+     items: items[req.items],
+     user: users[req.users]
+    }
+    return res.render("profiles", templateVars);
+  }
 });
 
 
@@ -68,8 +85,12 @@ app.get("/new_listing", (req, res) => {
 });
 
 app.post('/new_listing', (req, res) => {
-
-
+  const user = user;
+  if (user) {
+    const templateVars = {
+      items: items
+    }
+  }
 });
 
 
@@ -93,4 +114,12 @@ app.get("/messages", (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
+});
+
+app.get("*", (req, res) => {
+  const templateVars = {
+    user: users[req.session.user_id]
+  };
+  res.status(404);
+  res.render("404", templateVars);
 });
