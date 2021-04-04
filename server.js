@@ -51,23 +51,23 @@ app.get("/", (req, res) => {
 });
 
 app.get("/profile", (req, res) => {
-  res.send("profile");
+  res.render("profiles");
 });
 
 app.get("/new_listing", (req, res) => {
-  res.send("new_listing");
+  res.render("new_listing");
 });
 
 app.get("/items", (req, res) => {
-  res.send("items");
+  res.render("items");
 });
 
 app.get("/furniture", (req, res) => {
-  res.send("furniture");
+  res.render("furniture_profile");
 });
 
 app.get("/messages", (req, res) => {
-  res.send("messages");
+  res.render("messages");
 });
 
 app.listen(PORT, () => {
