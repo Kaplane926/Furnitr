@@ -46,30 +46,80 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
+
+
 app.get("/", (req, res) => {
   res.render("index");
 });
+
+app.post("/", (req, res) => {
+  const user = user;
+  if (user) {
+    const templateVars = {
+     items: items[req.items],
+     user: users[req.users]
+    }
+    return res.render("index", templateVars);
+  }
+});
+
 
 app.get("/profile", (req, res) => {
   res.render("profiles");
 });
 
+app.post("/profile", (req, res) => {
+  const user = user;
+  if (user) {
+    const templateVars = {
+     items: items[req.items],
+     user: users[req.users]
+    }
+    return res.render("profiles", templateVars);
+  }
+});
+
+
 app.get("/new_listing", (req, res) => {
   res.render("new_listing");
 });
+
+app.post('/new_listing', (req, res) => {
+  const user = user;
+  if (user) {
+    const templateVars = {
+      items: items
+    }
+  }
+});
+
 
 app.get("/items", (req, res) => {
   res.render("items");
 });
 
+
+
 app.get("/furniture", (req, res) => {
   res.render("furniture_profile");
 });
+
+
 
 app.get("/messages", (req, res) => {
   res.render("messages");
 });
 
+
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
+});
+
+app.get("*", (req, res) => {
+  const templateVars = {
+    user: users[req.session.user_id]
+  };
+  res.status(404);
+  res.render("404", templateVars);
 });

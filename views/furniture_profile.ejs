@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%- include('partials/_header') %>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <title>X's Profile</title>
+    <%- include('partials/_header') %>
+    <title>Profile</title>
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -14,6 +14,16 @@
   </head>
 
   <body>
-    <h1>EJS Variable's profile</h1>
+    <h1>Insert EJS Variable Here's Profile</h1>
+    <main>
+      <div class="profile pic">
+        <img src="/images/romantic_bed.png">
+      </div>
+      <ul>
+        <li>Description</li>
+        <li>Rating</li>
+      </ul>
+      <button class="message" type="submit">Message</button>
+    </main>
   </body>
 </html>
