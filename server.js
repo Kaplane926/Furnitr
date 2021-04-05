@@ -64,6 +64,10 @@ app.post("/", (req, res) => {
 });
 
 
+
+// user profile
+
+
 app.get("/profile", (req, res) => {
   res.render("profiles");
 });
@@ -80,37 +84,48 @@ app.post("/profile", (req, res) => {
 });
 
 
+// new listing
+
 app.get("/new_listing", (req, res) => {
   res.render("new_listing");
 });
 
 app.post('/new_listing', (req, res) => {
-  const user = user;
   if (user) {
     const templateVars = {
       items: items
-    }
+    } 
   }
+  res.send('POST request to items')
+  res.redirect("furniture profile");
 });
 
+
+
+
+// items
 
 app.get("/items", (req, res) => {
   res.render("items");
 });
 
 
+// furniture profile
 
 app.get("/furniture", (req, res) => {
   res.render("furniture_profile");
 });
 
 
+// messages
 
 app.get("/messages", (req, res) => {
   res.render("messages");
 });
 
+app.post("/messages", (req, res) => {
 
+});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
