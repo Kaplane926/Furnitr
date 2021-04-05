@@ -63,6 +63,9 @@ app.post("/", (req, res) => {
   }
 });
 
+app.get("/furnitr", (req, res) => {
+  res.render("furnitr");
+});
 
 
 // user profile
