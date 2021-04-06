@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-  <%- include ../public/index.html %>
+  <% include ../public/index.html %>
     <title>Home Page</title>
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
@@ -28,8 +28,30 @@
 </head>
 
 <body>
-
-  <h1>Meet hot single beds near you!</h1>
+  <div class="content">
+    <div class="item-card">
+      <img class="items" src="/images/Shoe_chair.png">
+      <div class="item-title">
+        Title <b>price</b>
+      </div>
+      <div class="item-desc">Description</div>
+    </div>
+    <form method="POST" action="/tweets">
+      <!-- <div>
+        <button>
+        <a><i class="fa fa-retweet grey pr-10"></i></a>
+        <a><i class="fa fa-heart grey pr-20"></i></a>
+      </button>
+      </div> -->
+      <button type="submit" class="dislike">
+        <i class="fa fa-times"></i>
+      </button>
+      <button type="submit" class="like">
+        <i class="fa fa-heart"></i>
+      </button>
+    </form>
+  </div>
+  <!-- <h1>Meet hot single beds near you!</h1>
   <main>
     <div class="furniture_image">
       <img src="/images/sexy_couch_potato.png">
@@ -48,7 +70,7 @@
       <button id="Right" type="submit">Smash</button>
       <button id="Left" type="submit">Pass</button>
     </div>
-  </main>
+  </main> -->
 </body>
 
 </html>

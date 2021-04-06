@@ -20,9 +20,8 @@
   padding: 20px;
   height: 75px;
   width: 100%;
-  font: white;
   font-weight: lighter;
-  background: linear-gradient(to right, #ff7854, #fd267d);
+  background: linear-gradient(to right, #fd267d, #ff7854);
   filter: drop-shadow(0 0 2px #707070)
 }
 .link-content {
@@ -42,6 +41,7 @@
 
 .content {
   display: flex;
+  flex-direction: column  ;
   justify-content: center;
   align-items: center;
   padding: 20px;
@@ -89,3 +89,36 @@
   background-color: white;
   filter: drop-shadow(0 0 0 5px #adadad);
 }
+
+.dislike {
+  margin: 10px;
+  margin-right: 20px;
+  color: rgb(200, 200, 200);
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: 2px solid white;
+  background-color: white;
+  font-size: 30px;
+  filter: drop-shadow(0 0 5px #adadad);
+}
+
+.like {
+  margin: 10px;
+  margin-right: 20px;
+  color: rgb(200, 200, 200);
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: 2px solid white;
+  background-color: white;
+  font-size: 24px;
+  filter: drop-shadow(0 0 5px #adadad);
+}
+
+/* .grey {
+  color: rgb(200, 200, 200);
+}
+.pr-20 {
+  padding: 20px
+} */
