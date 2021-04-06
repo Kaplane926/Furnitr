@@ -73,13 +73,14 @@ app.get("/furnitr", (req, res) => {
 
 /*app.post("/furnitr", (req, res) => {
   db.query(`
-  SELECT * FROM items;
+  SELECT * FROM items
+  LIMIT 1;
   `
   )
     .then(data => {
       //const users = data.rows;
       //res.json({ users });
-      console.log(data)
+      res.send(data)
     })
     .catch(err => {
       console.log(err)
@@ -139,6 +140,7 @@ app.get("/items", (req, res) => {
 // furniture profile
 
 app.get("/furniture", (req, res) => {
+
   res.render("furniture_profile");
 });
 
@@ -157,10 +159,11 @@ app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
 
-app.get("*", (req, res) => {
+/*app.get("*", (req, res) => {
   const templateVars = {
     user: users[req.session.user_id]
   };
   res.status(404);
   res.render("404", templateVars);
 });
+*/

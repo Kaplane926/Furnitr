@@ -138,3 +138,10 @@ function updateList() {
   }
 }
 
+function getItem(){
+  const query =
+  `SELECT title, price, description, image_url
+FROM items
+LIMIT 1;`
+
+}
