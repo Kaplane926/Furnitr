@@ -35,11 +35,13 @@ app.use(express.static("public"));
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
+const furnitrRoutes = require("./routes/furnitr");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
+app.use("/api/furnitr", furnitrRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 
@@ -66,6 +68,25 @@ app.post("/", (req, res) => {
 app.get("/furnitr", (req, res) => {
   res.render("furnitr");
 });
+
+/*app.post("/furnitr", (req, res) => {
+  db.query(`
+  SELECT * FROM items;
+  `
+  )
+    .then(data => {
+      //const users = data.rows;
+      //res.json({ users });
+      console.log(data)
+    })
+    .catch(err => {
+      console.log(err)
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+
+});*/
 
 
 // user profile

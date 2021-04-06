@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- <%- include('partials/_header') %> -->
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> -->
+  <title>Home Page</title>
+
+  <link rel="stylesheet" href="vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="styles/nav.css" type="text/css" />
+
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+
+  <!-- External JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- App JS -->
+  <script type="text/javascript" src="/scripts/client.js"></script>
+
+
+</head>
+
+<body>
+  <!-- Left nav bar (fixed) -->
+  <div class="page-layout">
+    <div class="sidebar">
+      <div class="topnav">
+        <div class="user">
+          <div class="avatar-container">
+            <img class="avatar" src="/images/avatars/Christy.jpg">
+          </div>
+        </div>
+        <h2>My Profile</h2>
+      </div>
+      <!-- <div class="column"></div> -->
+      <div class="profile-links">
+        <a class="nav-item nav-link" href="/my_listings">Listings</a>
+        <a class="nav-item nav-link" href="/favourites">Favourites</a>
+        <a class="nav-item nav-link" href="/messages">Messages</a>
+      </div>
+      <div class="link-content">
+        <h2>Start Favouriting!</h2>
+        Favourites will appear here once you start to Like items. You can message the seller directly from here once you like thier item and are ready to spark up the negotiation.
+      </div>
+    </div>
+    <div class="content">
+      <div class="item-card">
+        <img class="items" src="/images/Shoe_chair.png">
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
