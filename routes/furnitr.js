@@ -13,13 +13,13 @@ module.exports = (db) => {
   router.post("/", (req, res) => {
     //const values = [1, 1]
     db.query(`
-    SELECT * FROM items;
+    SELECT * FROM items
+    LIMIT 1;
     `
     )
       .then(data => {
         //const users = data.rows;
         //res.json({ users });
-        console.log(data)
         res.send(data)
       })
       .catch(err => {

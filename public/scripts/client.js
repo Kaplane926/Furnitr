@@ -19,9 +19,10 @@ $(document).ready(function(){
     $.ajax('/api/furnitr', { method: 'POST' })
     .then(function(data){
 
-      //$('.furniture_image').html(`<img src="/images/shoe_chair.png"></img>`)
-      console.log(data)
+      $('.furniture_image').html(`<img src="${data.rows[0].image_url}"></img>`)
+      //console.log("data: ", data)
 
+      console.log("data: ", data.rows[0].image_url)
 
       console.log('ajax request called!')
     })
