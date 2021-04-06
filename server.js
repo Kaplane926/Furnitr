@@ -97,7 +97,7 @@ app.post('/new_listing', (req, res) => {
   if (user) {
     const templateVars = {
       items: items
-    } 
+    }
   }
   res.send('POST request to items')
   res.redirect("furniture profile");
