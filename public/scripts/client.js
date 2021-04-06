@@ -8,35 +8,42 @@
   VALUES ($1, $2);
   `
 }*/
-const getData = function(data){
+//const getData = function(data){
 
-}
+//}
 
 $(document).ready(function(){
 
-  $('#Right').click(function(){
+  $('.like').click(function(){
+    console.log("clicked")
     //alert("You like this item")
     $.ajax('/api/furnitr', { method: 'POST' })
     .then(function(data){
-
-      //$('.furniture_image').html(`<img src="/images/shoe_chair.png"></img>`)
+      //alert("you like this!")
+      //alert(data.rows[0].image_url)
       console.log(data)
+      $('.items').html(`<img src="${data.rows[0].image_url}"></img>`)
+      //console.log("data: ", data)
 
+      console.log("data: ", data.rows[0].image_url)
 
       console.log('ajax request called!')
     })
+    $.ajax('/api/furnitrFavourite', { method: 'POST' })
+    .catch((err)=> console.log(err));
 
   })
 
-  $('#Left').click(function(){
+  $('.dislike').click(function(){
     alert("You dislike this item")
     $.ajax('/furnitr', { method: 'GET' })
     .then(function(data){
-      $('.furniture_image').html(`<img src="/images/sexy_couch_potato.png"></img>`)
-      console.log(data)
+      $('.items').html(`<img src="/images/sexy_couch_potato.png"></img>`)
+      //console.log(data)
 
 
       console.log('ajax request called!')
     })
   })
 })
+

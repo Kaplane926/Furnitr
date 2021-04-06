@@ -36,12 +36,14 @@ app.use(express.static("public"));
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
 const furnitrRoutes = require("./routes/furnitr");
+const furnitrFavouriteRoutes = require("./routes/furnitrFavourite");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/api/users", usersRoutes(db));
+//app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use("/api/furnitr", furnitrRoutes(db));
+app.use("/api/furnitrFavourite", furnitrFavouriteRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 
@@ -71,13 +73,14 @@ app.get("/furnitr", (req, res) => {
 
 /*app.post("/furnitr", (req, res) => {
   db.query(`
-  SELECT * FROM items;
+  SELECT * FROM items
+  LIMIT 1;
   `
   )
     .then(data => {
       //const users = data.rows;
       //res.json({ users });
-      console.log(data)
+      res.send(data)
     })
     .catch(err => {
       console.log(err)
@@ -137,6 +140,7 @@ app.get("/items", (req, res) => {
 // furniture profile
 
 app.get("/furniture", (req, res) => {
+
   res.render("furniture_profile");
 });
 
@@ -155,10 +159,11 @@ app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
 
-app.get("*", (req, res) => {
+/*app.get("*", (req, res) => {
   const templateVars = {
     user: users[req.session.user_id]
   };
   res.status(404);
   res.render("404", templateVars);
 });
+*/

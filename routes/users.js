@@ -4,7 +4,7 @@
  *   these routes are mounted onto /users
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
-
+/*
 const express = require('express');
 const router  = express.Router();
 
@@ -24,3 +24,4 @@ module.exports = (db) => {
   });
   return router;
 };
+*/

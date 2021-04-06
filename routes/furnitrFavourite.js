@@ -11,11 +11,12 @@ const router  = express.Router();
 module.exports = (db) => {
 
   router.post("/", (req, res) => {
-    //const values = [1, 1]
+    console.log("this is the thing:", res.body)
+    const values = [1, 1]
     db.query(`
-    SELECT * FROM items
-    LIMIT 1;
-    `
+    INSERT INTO favourites (user_id, item_id)
+    VALUES ($1, $2);
+    `, values
     )
       .then(data => {
         //const users = data.rows;
