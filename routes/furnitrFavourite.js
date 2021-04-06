@@ -10,27 +10,23 @@ const router  = express.Router();
 
 module.exports = (db) => {
 
-  router.post("/", (req, res) => {
-    console.log("this is the thing:", res.body)
-    const values = [1, 1]
-    db.query(`
-    INSERT INTO favourites (user_id, item_id)
-    VALUES ($1, $2);
-    `, values
+  router.post("/:id", (req, res) => {
+    console.log(req.params.id)
+    db.query(
+        `
+        INSERT INTO favourites (user_id, item_id, is_fav)
+        VALUES (1, ${req.params.id}, TRUE)
+        ;
+      `
     )
-      .then(data => {
-        //const users = data.rows;
-        //res.json({ users });
-        res.send(data)
-      })
-      .catch(err => {
-        console.log(err)
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
-
+    .then(()=> res.sendStatus(200))
+    .catch(function(err){
+      console.log(err)
+      res.sendStatus(400)
+    })
   });
+
+
   return router;
 };
 

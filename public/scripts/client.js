@@ -12,30 +12,29 @@
 
 //}
 
-$(document).ready(function(){
+
+function fetchItem(){
   $.ajax('/api/furnitr', { method: 'POST' })
   .then(function(data){
-    $('.item-title').html(`${data.rows[0].title} <b> ${data.rows[0].price} </b>`)
-    $('.item-desc').html(`${data.rows[0].description}`)
+    const item = data.rows[0]
+    $('#content').data('item_id', item.id)
+    $('.item-title').html(`${item.title} <b> ${item.price} </b>`)
+    $('.item-desc').html(`${item.description}`)
   })
+};
+
+$(document).ready(function(){
+  fetchItem()
   $('.like').click(function(){
     console.log("clicked")
-    //alert("You like this item")
-    $.ajax('/api/furnitr', { method: 'POST' })
+    const itemID = $('#content').data('item_id')
+    $.ajax(`/api/furnitrFavourite/${itemID}`, { method: 'POST' })
     .then(function(data){
-      //alert("you like this!")
-      //alert(data.rows[0].image_url)
-      console.log(data)
-      $('.items').html(`<img src="${data.rows[0].image_url}"></img>`)
-      //console.log("data: ", data)
-
-      console.log("data: ", data.rows[0].image_url)
-
-      console.log('ajax request called!')
+      alert("am I working?")
+      console.log("favourites called! ", data)
+      fetchItem()
     })
-    $.ajax('/api/furnitrFavourite', { method: 'POST' })
-    .catch((err)=> console.log(err));
-
+    .catch(console.log);
   })
 
   $('.dislike').click(function(){
