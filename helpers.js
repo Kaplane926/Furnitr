@@ -4,7 +4,7 @@ const furniture_profile = function (items) {
     const queryString = `INSERT INTO furnitures (seller_id, title, price, description, image, date_posted, date_sold, country, street, city, province, postal_code, zodiac_sign, status)
     VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
     RETURNING *;`;
-  
+
     const userInput = [
       items.owner_id,
       items.title,
@@ -137,3 +137,4 @@ function updateList() {
     $('#list').append('<li>Nothing stored!</li>');
   }
 }
+

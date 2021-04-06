@@ -36,7 +36,7 @@ $(document).ready(function(){
     $.ajax('/furnitr', { method: 'GET' })
     .then(function(data){
       $('.furniture_image').html(`<img src="/images/sexy_couch_potato.png"></img>`)
-      console.log(data)
+      //console.log(data)
 
 
       console.log('ajax request called!')
