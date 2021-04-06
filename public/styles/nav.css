@@ -1,3 +1,26 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 350px;
+  min-width: 350px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: white;
+  filter: drop-shadow(0 0 2px #707070)
+}
+
+.topnav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px;
+  height: 75px;
+  width: 100%;
+  font-weight: lighter;
+  background: linear-gradient(to right, #fd267d, #ff7854);
+  filter: drop-shadow(0 0 2px #707070)
+}
+
 .prof-hdr {
   font-size: 18px;
   color: white;
@@ -19,10 +42,41 @@
   margin-right: 20px;
 }
 
+.nav-body {
+  display: flex;
+  flex-direction: column;
+}
+
 .profile-links {
   display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   padding-top: 20px;
   padding-bottom: 20px;
-  border-style: none;
-  justify-content: space-around
+}
+
+
+.link-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 120px;
+  padding-bottom: 140px;
+  padding-left: 50px;
+  padding-right: 50px;
+  color: grey;
+  text-align: center;
+  line-height: 35px;
+  font-weight: lighter;
+  font-size: 16px;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.logo {
+  height: 30px;
 }
