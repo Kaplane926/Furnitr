@@ -26,6 +26,8 @@ $(document).ready(function(){
 
       console.log('ajax request called!')
     })
+    $.ajax('/api/furnitrFavourite', { method: 'POST' })
+    .catch((err)=> console.log(err));
 
   })
 
