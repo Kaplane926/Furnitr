@@ -1,24 +1,18 @@
-// app.get("/new_listing", (req, res) => {
-//   res.send("new_listing");
-// });
-
-
 const express = require('express');
 const router  = express.Router();
 
 module.exports = (db) => {
 
-  router.post("/items", (req, res) => {
-    console.log('afbsjd');
+  router.post("/", (req, res) => {
     //const values = [1, 1]
     db.query(`
-    SELECT * FROM items;
+    SELECT * FROM items
+    LIMIT 1;
     `
     )
       .then(data => {
         //const users = data.rows;
         //res.json({ users });
-        console.log(data)
         res.send(data)
       })
       .catch(err => {
@@ -31,3 +25,11 @@ module.exports = (db) => {
   });
   return router;
 };
+
+const likeItem = function(){
+  const values = []
+  const queryString = `
+  INSERT INTO favourites (user_id, item_id)
+  VALUES ($1, $2);
+  `
+}
