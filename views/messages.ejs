@@ -1,19 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <%- include ../public/index.html %>
+
+<head>
+  <%- include ../public/index.html %>
     <title>Messages</title>
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layouts.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/messages.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
-  </head>
+</head>
 
-  <body>
-    <h1>Your messages</h1>
-  </body>
+<body>
+  <div class="chat-messages">
+
+    <!-- MESSAGE -->
+    <div class="message-row me">
+      <img class="avatar" src="/images/avatars/Christy.jpg">
+
+      <div class="bubble">
+        <div class="message">Hi! Is this item still available?</div>
+        <div class="time">3:00pm FIX</div>
+      </div>
+    </div>
+    <!-- / MESSAGE -->
+
+  </div>
+
+  <!-- REPLY FORM -->
+  <div class="reply-form">
+    <textarea id="message-text" placeholder="Type your message" name="message"></textarea>
+    <button class="send" type="submit">
+      <i class="fa fa-paper-plane" aria-hidden="true"></i>
+    </button>
+  </div>
+  <!-- / REPLY FORM -->
+
+</body>
+
 </html>

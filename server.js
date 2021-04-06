@@ -56,16 +56,16 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.post("/", (req, res) => {
-  const user = user;
-  if (user) {
-    const templateVars = {
-     items: items[req.items],
-     user: users[req.users]
-    }
-    return res.render("index", templateVars);
-  }
-});
+// app.post("/", (req, res) => {
+//   const user = user;
+//   if (user) {
+//     const templateVars = {
+//      items: items[req.items],
+//      user: users[req.users]
+//     }
+//     return res.render("index", templateVars);
+//   }
+// });
 
 app.get("/furnitr", (req, res) => {
   res.render("furnitr");
@@ -99,17 +99,25 @@ app.get("/profile", (req, res) => {
   res.render("profiles");
 });
 
-app.post("/profile", (req, res) => {
-  const user = user;
-  if (user) {
-    const templateVars = {
-     items: items[req.items],
-     user: users[req.users]
-    }
-    return res.render("profiles", templateVars);
-  }
+// app.post("/profile", (req, res) => {
+//   const user = user;
+//   if (user) {
+//     const templateVars = {
+//      items: items[req.items],
+//      user: users[req.users]
+//     }
+//     return res.render("profiles", templateVars);
+//   }
+// });
+
+app.get("/my_listings", (req, res) => {
+  res.render("my_listings");
 });
 
+
+app.get("/favourites", (req, res) => {
+  res.render("furnitrFavourite");
+});
 
 // new listing
 
@@ -117,15 +125,15 @@ app.get("/new_listing", (req, res) => {
   res.render("new_listing");
 });
 
-app.post('/new_listing', (req, res) => {
-  if (user) {
-    const templateVars = {
-      items: items
-    }
-  }
-  res.send('POST request to items')
-  res.redirect("furniture profile");
-});
+// app.post('/new_listing', (req, res) => {
+//   if (user) {
+//     const templateVars = {
+//       items: items
+//     }
+//   }
+//   res.send('POST request to items')
+//   res.redirect("furniture profile");
+// });
 
 
 
@@ -140,7 +148,6 @@ app.get("/items", (req, res) => {
 // furniture profile
 
 app.get("/furniture", (req, res) => {
-
   res.render("furniture_profile");
 });
 
@@ -151,9 +158,9 @@ app.get("/messages", (req, res) => {
   res.render("messages");
 });
 
-app.post("/messages", (req, res) => {
+// app.post("/messages", (req, res) => {
 
-});
+// });
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
