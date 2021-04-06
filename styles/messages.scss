@@ -1,6 +1,7 @@
 .chat-messages {
   position: relative;
-  padding: 16px 0 40px 40px;
+  width: calc(100% - 300px);
+  padding: 40px 20px 40px 20px;
 }
 
 .message-row {
@@ -45,6 +46,8 @@
   &.contact {
 
     .bubble {
+        justify-content: flex-end;
+        font-weight: lighter;
         color: #E0E0E0;
         background-color: rgb(60, 66, 82);
         border-radius: 20px;
@@ -55,81 +58,35 @@
         }
     }
 
-    // &.first-of-group {
-
-    //     .bubble {
-    //         border-top-left-radius: 20px;
-    //     }
-    // }
-
-    // &.last-of-group {
-
-    //     .bubble {
-    //         border-bottom-left-radius: 20px;
-    //     }
-    // }
   }
 
-&.me {
+  &.me {
+    flex-direction: column-reverse;
     padding-left: 40px;
 
-    .avatar {
-        order: 2;
-        margin: 0 0 0 16px;
+      .avatar {
+          order: 2;
+          margin: 0 0 0 16px;
     }
 
-    .bubble {
-      justify-content: flex-end;
-        color: rgba(0, 0, 0, 0.87);
-        background-color: #E0E0E0;
-        margin-left: auto;
-        border-radius: 20px;
+      .bubble {
+          font-weight: lighter;
+          color: rgba(0, 0, 0, 0.87);
+          background-color: #E0E0E0;
+          margin-left: auto;
+          border-radius: 20px;
 
-        .time {
-            justify-content: flex-end;
-            right: 0;
-            margin-right: 12px;
-        }
-    }
+          .time {
+              justify-content: flex-end;
+              right: 0;
+              margin-right: 12px;
+          }
+      }
+  }
 
-    // &.first-of-group {
-
-    //     .bubble {
-    //         border-top-right-radius: 20px;
-    //     }
-    // }
-
-    // &.last-of-group {
-
-    //     .bubble {
-    //         border-bottom-right-radius: 20px;
-    //     }
-    // }
-}
-
-&.contact + .me,
-&.me + .contact {
+  &.contact + .me,
+  &.me + .contact {
     padding-top: 20px;
     margin-top: 20px;
-}
-
-// &.first-of-group {
-
-//     .bubble {
-//         border-top-left-radius: 20px;
-//         padding-top: 13px;
-//     }
-// }
-
-// &.last-of-group {
-
-//     .bubble {
-//         border-bottom-left-radius: 20px;
-//         padding-bottom: 13px;
-
-//         .time {
-//             display: flex;
-//         }
-//     }
-// }
+  }
 }

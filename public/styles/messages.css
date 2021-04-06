@@ -1,6 +1,7 @@
 .chat-messages {
   position: relative;
-  padding: 16px 0 40px 40px;
+  width: calc(100% - 300px);
+  padding: 40px 20px 40px 20px;
 }
 
 .message-row {
@@ -44,6 +45,8 @@
 }
 
 .message-row.contact .bubble {
+  justify-content: flex-end;
+  font-weight: lighter;
   color: #E0E0E0;
   background-color: #3c4252;
   border-radius: 20px;
@@ -55,6 +58,7 @@
 }
 
 .message-row.me {
+  flex-direction: column-reverse;
   padding-left: 40px;
 }
 
@@ -64,7 +68,7 @@
 }
 
 .message-row.me .bubble {
-  justify-content: flex-end;
+  font-weight: lighter;
   color: rgba(0, 0, 0, 0.87);
   background-color: #E0E0E0;
   margin-left: auto;
