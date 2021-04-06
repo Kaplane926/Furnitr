@@ -1,7 +1,11 @@
+.prof-hdr {
+  color: white;
+}
+
 .hdr {
+  padding: 10px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 24px;
-  font-weight: bold;
   color: black
 }
 
