@@ -13,7 +13,11 @@
 //}
 
 $(document).ready(function(){
-
+  $.ajax('/api/furnitr', { method: 'POST' })
+  .then(function(data){
+    $('.item-title').html(`${data.rows[0].title} <b> ${data.rows[0].price} </b>`)
+    $('.item-desc').html(`${data.rows[0].description}`)
+  })
   $('.like').click(function(){
     console.log("clicked")
     //alert("You like this item")

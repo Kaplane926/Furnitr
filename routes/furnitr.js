@@ -14,7 +14,8 @@ module.exports = (db) => {
     //const values = [1, 1]
     db.query(`
     SELECT * FROM items
-    LIMIT 1;
+    JOIN favourites ON items.id = item_id
+    WHERE user_id != 1;
     `
     )
       .then(data => {
