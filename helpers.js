@@ -145,3 +145,47 @@ FROM items
 LIMIT 1;`
 
 }
+
+
+// function for search bar
+
+const furnitureList = document.getElementById('furnitureList');
+const searchBar = document.getElementById('searchBar');
+let furnitureItems = [];
+
+searchBar.addEventListener('keyup', (e) => {
+    const searchString = e.target.value.toLowerCase();
+
+    const filteredFurniture = furnitureItems.filter((furniture) => {
+        return (
+            furniture.name.toLowerCase().includes(searchString) ||
+            furniture.house.toLowerCase().includes(searchString)
+        );
+    });
+    displayFurniture(filteredCharacters);
+});
+
+const loadFurniture = async () => {
+    try {
+        const res = await fetch('');
+        furnitureItems = await res.json();
+        displayFurniture(furnitureItems);
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+const displayFurniture = (furnitureItems) => {
+    const htmlString = furnitureItems
+        .map((furniture) => {
+            return `
+            <li class="furniture">
+                <h2>${furniture.name}</h2>
+            </li>
+        `;
+        })
+        .join('');
+    furnitureList.innerHTML = htmlString;
+};
+
+loadFurniture();
