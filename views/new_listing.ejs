@@ -1,33 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <%- include ../public/index.html %>
+
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <%- include ../public/index.html %>
     <title>New Listings</title>
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/new_listing.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
-  </head>
+</head>
 
-  <body>
-    <h1>Create a New Listing:</h1>
-    <main>
-      <form action="/api/properties" method="post" id="new-furniture-form" class="new-furniture-form">
-        <div class="new_furniture_form_wrapper">
-          <label for="new-furniture-form__title">Title</label>
-          <input type="text" name="title" placeholder="Title" id="new-furniture-form__title">
+<body>
+  <div class="create-listing">
+    <header class="listing-hdr">Create a New Listing:</header>
+    <form action="/api/properties" method="post" id="new-furniture-form" class="new-furniture-form">
+      <!-- <div class="new_furniture_form_wrapper">
+        <label for="new-furniture-form__title">Title</label>
+        <input type="text" name="title" placeholder="Title" id="new-furniture-form__title">
+      </div> -->
+
+      <div class="new-listing">
+        <img class="avatar" src="/images/avatars/Christy.jpg"> Christy Churchill
+        <div class="new-info">
+          <input class="title" type="text" name="title" placeholder="Title">
+          <input class="price" type="number" name="Price" placeholder="Price">
+          <textarea class="description" name="description" placeholder="Description" cols="30" rows="10"></textarea>
         </div>
+      </div>
 
-        <div class="new_furniture_form_wrapper">
-          <label for="new-furniture-form__description">Description</label>
-          <textarea placeholder="Description" name="description" id="property-form__description" cols="30" rows="10"></textarea>
-        </div>
-
-        <!-- <div class="new_furniture_form_wrapper">
+      <!-- <div class="new_furniture_form_wrapper">
             <label for="new-property-form__type">Type</label>
             <select id="new-property-form__type" name="type">
                 <option value="house">House</option>
@@ -35,7 +42,7 @@
             </select>
           </div> -->
 
-
+      <!--
         <div class="new_furniture_form_wrapper">
           <label for="new-furniture-form__cost">Price</label>
           <input placeholder="Price" type="number" name="Price" id="new-furniture-form__cost">
@@ -44,11 +51,24 @@
         <div class="new_furniture_form_wrapper">
           <label for="new-furniture-form__profile">Profile Image</label>
           <input placeholder="URL" type="text" name="profile_photo_url" id="new-furniture-form__profile">
-        </div>
+        </div> -->
 
-        <hr>
+      <hr>
 
-        <div class="new_furniture_form_wrapper">
+      <div class="address">
+        <input class="street" type="text" name="street" placeholder="Street">
+        <select class="country" name="country" data-country-selected="CA">
+          <option value="US">United States</option>
+          <option value="CA">Canada</option>
+          <option value="BR">Brazil</option>
+        </select>
+        <input class="city" type="text" name="city" placeholder="City">
+        <input class="state" type="text" name="province" placeholder="State / Province">
+        <input class="postal" type="text" name="post_code" placeholder="ZIP / Postal Code">
+      </div>
+
+
+      <!-- <div class="new_furniture_form_wrapper">
             <label for="new-furniture-form__street">Street</label>
             <input placeholder="Street" type="text" name="street" id="new-furniture-form__street" />
           </div>
@@ -75,14 +95,15 @@
               <label for="new-furniture-form__zip">Postal Code</label>
               <input placeholder="Postal Code" type="text" name="post_code" id="new-furniture-form__zip" />
             </div>
-          </div>
+          </div> -->
 
-          <div class="new_furniture_form_wrapper">
-              <button>Create</button>
-              <a id="furniture-form__cancel" href="#">Cancel</a>
-          </div>
+      <div class="new_furniture_form_wrapper">
+        <button>Create</button>
+        <a id="furniture-form__cancel" href="#">Cancel</a>
+      </div>
 
-      </form>
-    </main>
-  </body>
+    </form>
+  </div>
+</body>
+
 </html>
