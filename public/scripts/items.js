@@ -1,9 +1,10 @@
-$(document).ready(function(){
-
+function renderFavourites(){
   $.ajax('/api/favourites', { method: 'POST' })
   .then(function(data){
     let html = ""
+    let id = 1
     for(row of data.rows){
+
       html += `
         <div class="liked-items">
         `
@@ -13,13 +14,33 @@ $(document).ready(function(){
       `
       html += `<p class="item-desc">${row.description}</p>
       `
-      html += `<button  class="dislike">
+      html += `<button id = '${id}' class="dislike" data-id = "${row.id}">
       <i class="fa fa-times" aria-hidden="true"></i>
-    </button>
-  </div>`
+      </button>
+      </div>`
+
+    id ++
     }
     console.log(html)
     $('.item-card').html(html)
   })
+  .then(function(){
+    $('.dislike').click(function(){
+      alert("boop")
+      const buttonId = $(this).attr('id')
+      const itemId = $(`#${buttonId}`).data('id')
+      $.ajax(`/api/unfavourite/${itemId}`, { method: 'POST' })
+      .then(function(){
+        renderFavourites()
+      })
+
+    })
+  })
+
+}
+
+$(document).ready(function(){
+
+  renderFavourites()
 
 })
