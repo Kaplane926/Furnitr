@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="styles/layouts.css" type="text/css" />
+    <link rel="stylesheet" href="styles/layout-faves.css" type="text/css" />
     <link rel="stylesheet" href="styles/nav.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
@@ -15,6 +15,7 @@
   </head>
 
   <body>
+    <container>
     <h1 class="page-title">Liked Items</h1>
     <main>
       <!-- Liked images pulled from a database, maybe 10 per page?-->
@@ -28,6 +29,8 @@
               <i class="fa fa-times" aria-hidden="true"></i>
             </button>
           </div>
+        </div>
+        <div class="item-card">
           <div class="liked-items">
             <img src="/images/tiger_couch.png">
             <p class="item-title">ITEM DATABASE.title</p>
@@ -36,7 +39,9 @@
               <i class="fa fa-times" aria-hidden="true"></i>
             </button>
           </div>
-          <div class="liked-items">
+        </div>
+        <div class="item-card">
+          <div class="liked-items"> 
             <img src="/images/sexy_couch.png">
             <p class="item-title">ITEM DATABASE.title</p>
             <p class="item-desc">ITEM DATABASE.description</p>
@@ -47,5 +52,6 @@
       </div>
     </form>
     </main>
+  </container>
   </body>
 </html>
