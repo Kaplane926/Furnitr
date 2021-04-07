@@ -1,103 +1,122 @@
- .chat-messages {
-    position: relative;
-    width: calc(100% - 300px);
-    padding: 40px 20px 40px 20px;
-  }
+.chat {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 
-  .message-row {
-    position: relative;
+  .chat-content {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-end;
+    overflow: auto;
 
-    .avatar {
-      position: absolute;
-      left: -15px;
-      margin: 0;
+    .chat-messages {
+      position: relative;
+      padding: 40px 20px 40px 20px;
     }
 
-    .bubble {
+    .message-row {
       position: relative;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px;
-      max-width: 100%;
-      margin-left: 50px;
-
-      .message {
-        white-space: pre-wrap;
-        line-height: 1.2;
-      }
-
-      .time {
-        position: absolute;
-        display: none;
-        width: 100%;
-        font-size: 11px;
-        margin-top: 8px;
-        top: 100%;
-        left: 0;
-        white-space: nowrap;
-      }
-    }
-
-    &.contact {
-      .bubble {
-        justify-content: flex-end;
-        font-weight: lighter;
-        color: #e0e0e0;
-        background-color: rgb(60, 66, 82);
-        border-radius: 20px;
-
-        .time {
-          color: red;
-          margin-left: 12px;
-        }
-      }
-    }
-
-    &.me {
-      flex-direction: column-reverse;
-      padding-left: 40px;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
 
       .avatar {
-        order: 2;
-        margin: 0 0 0 16px;
+        position: absolute;
+        left: -15px;
+        margin: 0;
       }
 
       .bubble {
-        font-weight: lighter;
-        color: rgba(0, 0, 0, 0.87);
-        background-color: #e0e0e0;
-        margin-left: auto;
-        border-radius: 20px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px;
+        max-width: 100%;
+        margin-left: 50px;
+
+        .message {
+          white-space: pre-wrap;
+          line-height: 1.2;
+        }
 
         .time {
-          justify-content: flex-end;
-          right: 0;
-          margin-right: 12px;
+          position: absolute;
+          display: none;
+          width: 100%;
+          font-size: 11px;
+          margin-top: 8px;
+          top: 100%;
+          left: 0;
+          white-space: nowrap;
         }
       }
-    }
 
-    &.contact + .me,
-    &.me + .contact {
-      padding-top: 20px;
-      margin-top: 20px;
+      &.contact {
+        .avatar {
+          order: 2;
+          margin: 0 0 0 16px;
+        }
+
+        .bubble {
+          justify-content: flex-end;
+          font-weight: lighter;
+          color: #e0e0e0;
+          background-color: rgb(60, 66, 82);
+          border-radius: 20px;
+
+          .time {
+            color: red;
+            margin-left: 12px;
+          }
+        }
+      }
+
+      &.me {
+        flex-direction: column-reverse;
+        padding-left: 40px;
+
+        .avatar {
+          order: 2;
+          margin: 0 0 0 16px;
+        }
+
+        .bubble {
+          font-weight: lighter;
+          color: rgba(0, 0, 0, 0.87);
+          background-color: #e0e0e0;
+          margin-left: auto;
+          border-radius: 20px;
+
+          .time {
+            justify-content: flex-end;
+            right: 0;
+            margin-right: 12px;
+          }
+        }
+      }
+
+      &.contact + .me,
+      &.me + .contact {
+        padding-top: 20px;
+        margin-top: 20px;
+      }
     }
   }
 
   .chat-footer {
+    display: flex;
+    flex-direction: column;
     border-top: 1px solid;
     padding: 8px 8px 8px 16px;
 
     .reply-form {
       position: relative;
+      width: 90%;
 
       .message-text {
         padding: 16px 8px;
+        width: 90%;
       }
 
       .send-message-button {
@@ -107,3 +126,4 @@
       }
     }
   }
+}

@@ -1,10 +1,21 @@
-.chat-messages {
+.chat {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.chat .chat-content {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.chat .chat-content .chat-messages {
   position: relative;
-  width: calc(100% - 300px);
   padding: 40px 20px 40px 20px;
 }
 
-.message-row {
+.chat .chat-content .message-row {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -12,13 +23,13 @@
   justify-content: flex-end;
 }
 
-.message-row .avatar {
+.chat .chat-content .message-row .avatar {
   position: absolute;
   left: -15px;
   margin: 0;
 }
 
-.message-row .bubble {
+.chat .chat-content .message-row .bubble {
   position: relative;
   display: flex;
   align-items: center;
@@ -28,12 +39,12 @@
   margin-left: 50px;
 }
 
-.message-row .bubble .message {
+.chat .chat-content .message-row .bubble .message {
   white-space: pre-wrap;
   line-height: 1.2;
 }
 
-.message-row .bubble .time {
+.chat .chat-content .message-row .bubble .time {
   position: absolute;
   display: none;
   width: 100%;
@@ -44,7 +55,12 @@
   white-space: nowrap;
 }
 
-.message-row.contact .bubble {
+.chat .chat-content .message-row.contact .avatar {
+  order: 2;
+  margin: 0 0 0 16px;
+}
+
+.chat .chat-content .message-row.contact .bubble {
   justify-content: flex-end;
   font-weight: lighter;
   color: #e0e0e0;
@@ -52,22 +68,22 @@
   border-radius: 20px;
 }
 
-.message-row.contact .bubble .time {
+.chat .chat-content .message-row.contact .bubble .time {
   color: red;
   margin-left: 12px;
 }
 
-.message-row.me {
+.chat .chat-content .message-row.me {
   flex-direction: column-reverse;
   padding-left: 40px;
 }
 
-.message-row.me .avatar {
+.chat .chat-content .message-row.me .avatar {
   order: 2;
   margin: 0 0 0 16px;
 }
 
-.message-row.me .bubble {
+.chat .chat-content .message-row.me .bubble {
   font-weight: lighter;
   color: rgba(0, 0, 0, 0.87);
   background-color: #e0e0e0;
@@ -75,32 +91,36 @@
   border-radius: 20px;
 }
 
-.message-row.me .bubble .time {
+.chat .chat-content .message-row.me .bubble .time {
   justify-content: flex-end;
   right: 0;
   margin-right: 12px;
 }
 
-.message-row.contact + .me,
-.message-row.me + .contact {
+.chat .chat-content .message-row.contact + .me,
+.chat .chat-content .message-row.me + .contact {
   padding-top: 20px;
   margin-top: 20px;
 }
 
-.chat-footer {
+.chat .chat-footer {
+  display: flex;
+  flex-direction: column;
   border-top: 1px solid;
   padding: 8px 8px 8px 16px;
 }
 
-.chat-footer .reply-form {
+.chat .chat-footer .reply-form {
   position: relative;
+  width: 90%;
 }
 
-.chat-footer .reply-form .message-text {
+.chat .chat-footer .reply-form .message-text {
   padding: 16px 8px;
+  width: 90%;
 }
 
-.chat-footer .reply-form .send-message-button {
+.chat .chat-footer .reply-form .send-message-button {
   position: absolute;
   right: 16px;
   bottom: 21px;
