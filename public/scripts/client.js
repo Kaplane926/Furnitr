@@ -19,7 +19,7 @@ function fetchItem(){
     const item = data.rows[0]
     if(item !== undefined){
     $('#content').data('item_id', item.id)
-    $('.item-title').html(`${item.title} <b> ${item.price} </b>`)
+    $('.item-title').html(`${item.title} <b> $${item.price} </b>`)
     $('.item-desc').html(`${item.description}`)
     $('.items').html(`<img src ="${item.image_url}"></img>`)
     }
