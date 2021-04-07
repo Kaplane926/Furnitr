@@ -3,8 +3,6 @@
 
 <head>
   <!--<div></div> -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
   <% include ../public/index.html %>
     <title>Home Page</title>
@@ -15,13 +13,13 @@
     <link rel="stylesheet" href="../public/styles/nav.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
+    <!-- <script type="text/javascript" src="/scripts/client.js"></script> -->
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
-    <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/client.js"></script>
 
 
 </head>
@@ -33,22 +31,16 @@
         <img  src="/images/romantic_bed.png">
       </div>
       <div class="item-title">
-        Title <b>price</b>
+        <!-- Title <b>price</b> -->
       </div>
       <div class="item-desc">Description</div>
     </div>
     <div>
-      <!-- <div>
-        <button>
-        <a><i class="fa fa-retweet grey pr-10"></i></a>
-        <a><i class="fa fa-heart grey pr-20"></i></a>
-      </button>
-      </div> -->
       <button  class="dislike">
-        <i class="fa fa-times" aria-hidden="true"></i>
+        <i class="fa fa-times"></i>
       </button>
       <button  class="like">
-        <i class="fa fa-heart" aria-hidden="true"></i>
+        <i class="fa fa-heart"></i>
       </button>
     </div>
   </div>
@@ -75,3 +67,4 @@
 </body>
 
 </html>
+
