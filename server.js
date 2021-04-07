@@ -41,7 +41,7 @@ const furnitrDislikeRoutes = require("./routes/furnitrDislike");
 const favouritesRoutes = require("./routes/favourites");
 const logoRoutes = require("./routes/logo");
 const unfavouriteRoutes = require("./routes/unfavourite");
-const newListingRoutes = require("./routes/new_listing.ejs");
+const newListingRoutes = require("./routes/newListing.ejs");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
