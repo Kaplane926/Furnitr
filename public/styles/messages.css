@@ -47,7 +47,7 @@
 .message-row.contact .bubble {
   justify-content: flex-end;
   font-weight: lighter;
-  color: #E0E0E0;
+  color: #e0e0e0;
   background-color: #3c4252;
   border-radius: 20px;
 }
@@ -70,7 +70,7 @@
 .message-row.me .bubble {
   font-weight: lighter;
   color: rgba(0, 0, 0, 0.87);
-  background-color: #E0E0E0;
+  background-color: #e0e0e0;
   margin-left: auto;
   border-radius: 20px;
 }
@@ -85,4 +85,23 @@
 .message-row.me + .contact {
   padding-top: 20px;
   margin-top: 20px;
+}
+
+.chat-footer {
+  border-top: 1px solid;
+  padding: 8px 8px 8px 16px;
+}
+
+.chat-footer .reply-form {
+  position: relative;
+}
+
+.chat-footer .reply-form .message-text {
+  padding: 16px 8px;
+}
+
+.chat-footer .reply-form .send-message-button {
+  position: absolute;
+  right: 16px;
+  bottom: 21px;
 }
