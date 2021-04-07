@@ -20,13 +20,15 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .chat .chat-content .message-row .avatar {
   position: absolute;
   left: -15px;
   margin: 0;
+  height: 60px;
+  width: 60px;
 }
 
 .chat .chat-content .message-row .bubble {
@@ -41,7 +43,7 @@
 
 .chat .chat-content .message-row .bubble .message {
   white-space: pre-wrap;
-  line-height: 1.2;
+  line-height: 2;
 }
 
 .chat .chat-content .message-row .bubble .time {
@@ -55,17 +57,13 @@
   white-space: nowrap;
 }
 
-.chat .chat-content .message-row.contact .avatar {
-  order: 2;
-  margin: 0 0 0 16px;
-}
-
 .chat .chat-content .message-row.contact .bubble {
   justify-content: flex-end;
   font-weight: lighter;
+  padding-left: 10px;
   color: #e0e0e0;
   background-color: #3c4252;
-  border-radius: 20px;
+  border-radius: 25px;
 }
 
 .chat .chat-content .message-row.contact .bubble .time {
@@ -88,7 +86,7 @@
   color: rgba(0, 0, 0, 0.87);
   background-color: #e0e0e0;
   margin-left: auto;
-  border-radius: 20px;
+  border-radius: 25px;
 }
 
 .chat .chat-content .message-row.me .bubble .time {
@@ -107,17 +105,19 @@
   display: flex;
   flex-direction: column;
   border-top: 1px solid;
-  padding: 8px 8px 8px 16px;
+  padding: 8px 16px 8px 16px;
+  height: 100px;
 }
 
 .chat .chat-footer .reply-form {
   position: relative;
-  width: 90%;
+  width: 100%;
 }
 
 .chat .chat-footer .reply-form .message-text {
   padding: 16px 8px;
-  width: 90%;
+  width: 100%;
+  border-radius: 20px;
 }
 
 .chat .chat-footer .reply-form .send-message-button {
