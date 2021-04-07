@@ -28,7 +28,6 @@ function renderFavourites(){
   })
   .then(function(){
     $('.dislike').click(function(){
-      alert("boop")
       const buttonId = $(this).attr('id')
       const itemId = $(`#${buttonId}`).data('id')
       $.ajax(`/api/unfavourite/${itemId}`, { method: 'POST' })
