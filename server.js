@@ -41,6 +41,7 @@ const furnitrDislikeRoutes = require("./routes/furnitrDislike");
 const favouritesRoutes = require("./routes/favourites");
 const logoRoutes = require("./routes/logo");
 const unfavouriteRoutes = require("./routes/unfavourite");
+const createNewListingRoutes = require("./routes/createNewListing");
 
 
 // Mount all resource routes
@@ -53,6 +54,7 @@ app.use("/api/furnitrDislike", furnitrDislikeRoutes(db));
 app.use("/api/favourites", favouritesRoutes(db));
 app.use("/api/logo", logoRoutes(db));
 app.use("/api/unfavourite", unfavouriteRoutes(db));
+app.use("/api/createNewListing", createNewListingRoutes(db));
 
 // Note: mount other resources here, using the same pattern above
 
