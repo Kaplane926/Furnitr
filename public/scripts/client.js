@@ -31,7 +31,7 @@ $(document).ready(function(){
     const itemID = $('#content').data('item_id')
     $.ajax(`/api/furnitrFavourite/${itemID}`, { method: 'POST' })
     .then(function(data){
-      alert("am I working?")
+
       console.log("favourites called! ", data)
       fetchItem()
     })
@@ -39,11 +39,11 @@ $(document).ready(function(){
   })
 
   $('.dislike').click(function(){
-    alert("You dislike this item")
+
     const itemID = $('#content').data('item_id')
     $.ajax(`/api/furnitrDislike/${itemID}`, { method: 'POST' })
     .then(function(data){
-      alert("am I working?")
+
       console.log("dislikes called! ", data)
       fetchItem()
     })
