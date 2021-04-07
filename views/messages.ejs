@@ -15,19 +15,31 @@
 </head>
 
 <body>
-  <div class="chat-messages">
 
-    <!-- MESSAGE -->
-    <div class="message-row contact">
-      <img class="avatar" src="/images/avatars/Christy.jpg">
+  <!-- CHAT CONTENT -->
+<div class="chat">
+  <div class="chat-content">
+    <div class="chat-messages">
 
-      <div class="bubble">
-        <div class="message">Hi! Is this item still available?</div>
-        <div class="time">3:00pm FIX</div>
+      <!-- MESSAGE -->
+      <div class="message-row contact">
+        <img class="avatar" src="/images/avatars/james.jpg">
+
+        <div class="bubble">
+          <div class="message">Hi! Is this item still available?</div>
+          <div class="time">3:00pm FIX</div>
+        </div>
       </div>
-    </div>
-    <!-- / MESSAGE -->
+      <div class="message-row me">
 
+        <div class="bubble">
+          <div class="message">Yes it is! Do you have any questions about it?</div>
+          <div class="time">3:00pm FIX</div>
+        </div>
+      </div>
+      <!-- / MESSAGE -->
+
+    </div>
   </div>
 
   <!-- CHAT FOOTER -->
@@ -35,14 +47,16 @@
 
     <!-- REPLY FORM -->
     <div class="reply-form">
-      <textarea id="message-text" placeholder="Type your message" name="message"></textarea>
+      <textarea class="message-text" placeholder="Type your message" name="message"></textarea>
       <button class="send" type="submit">
         <i class="fa fa-paper-plane" aria-hidden="true"></i>
       </button>
     </div>
     <!-- / REPLY FORM -->
   </div>
+
   <!-- CHAT FOOTER -->
+</div>
 </body>
 
 </html>

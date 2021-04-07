@@ -1,0 +1,73 @@
+.create-listing {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+
+  .listing-hdr {
+    font-size: 24px;
+    margin: 0 16px 0 16px;
+  }
+
+  .new-listing {
+    font-size: 18px;
+    margin: 16px;
+    font-size: 20px;
+    font-weight: bold;
+
+    .avatar {
+      height: 60px;
+      width: 60px;
+    }
+
+    .new-info {
+      margin: 0 16px 16px 16px;
+      width: 100%;
+      min-width: 300px;
+      font-size: 16px;
+      font-weight: normal;
+      border-radius: 5px;
+
+      .title {
+        padding-left: 10px;
+        margin: 16px 16px 0 0;
+        height: 50px;
+        width: 300px;
+        border-radius: 8px;
+      }
+
+      .price {
+        padding-left: 10px;
+        margin: 16px 16px 0 0;
+        height: 50px;
+        width: 300px;
+        border-radius: 8px;
+      }
+
+      .description {
+        padding: 10px 0 0 10px;
+        margin: 16px 16px 0 0;
+        height: 150px;
+        width: 300px;
+        border-radius: 8px;
+      }
+    }
+  }
+
+  .address {
+    padding: 0 16px 16px 16px;
+    margin: 0 16px 16px 16px;
+    font-size: 16px;
+    font-weight: normal;
+    color: gray;
+
+    input, select {
+      padding-left: 10px;
+      margin: 16px 16px 0 0;
+      height: 50px;
+      width: 300px;
+      border-radius: 8px;
+    }
+  }
+}
