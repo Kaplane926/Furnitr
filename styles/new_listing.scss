@@ -16,9 +16,15 @@
     font-size: 20px;
     font-weight: bold;
 
-    .avatar {
-      height: 60px;
-      width: 60px;
+    .user {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .avatar {
+        height: 60px;
+        width: 60px;
+      }
     }
 
     .new-info {
@@ -28,6 +34,14 @@
       font-size: 16px;
       font-weight: normal;
       border-radius: 5px;
+
+      .photos {
+        padding-left: 10px;
+        margin: 16px 16px 0 0;
+        height: 50px;
+        width: 300px;
+        border-radius: 8px;
+      }
 
       .title {
         padding-left: 10px;
@@ -62,7 +76,8 @@
     font-weight: normal;
     color: gray;
 
-    input, select {
+    input,
+    select {
       padding-left: 10px;
       margin: 16px 16px 0 0;
       height: 50px;
