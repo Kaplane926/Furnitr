@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="/styles/messages.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
+    <!-- <script type="text/javascript" src="/scripts/app.js"></script> -->
+    <script type="text/javascript" src="/scripts/messenger.js"></script>
 </head>
 
 <body>
@@ -25,10 +26,10 @@
     </div>
   </div>
   <div class="chat-content">
-    <div class="chat-messages">
+    <div id="chat-messages">
 
       <!-- MESSAGE -->
-      <div class="message-row contact">
+      <!-- <div class="message-row contact">
         <img class="avatar" src="/images/avatars/james.jpg">
         <div class="bubble">
           <div class="message">Hi! Is this item still available?</div>
@@ -49,7 +50,7 @@
           <div class="message">Ya, is it in good condition? Has it been in a smoking household?</div>
           <div class="time">3:00pm FIX</div>
         </div>
-      </div>
+      </div> -->
       <!-- / MESSAGE -->
 
     </div>
@@ -60,7 +61,7 @@
 
     <!-- REPLY FORM -->
     <div class="reply-form">
-      <textarea class="message-text" placeholder="Type your message" name="message"></textarea>
+      <textarea id="message-text" name="message" placeholder="Type your message"></textarea>
       <button class="send" type="submit">
         <i class="fa fa-paper-plane" aria-hidden="true"></i>
       </button>

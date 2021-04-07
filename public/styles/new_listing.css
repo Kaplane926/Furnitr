@@ -46,6 +46,10 @@
   border-radius: 8px;
 }
 
+.create-listing .new-listing .new-info .choose {
+  margin-top: 8px;
+}
+
 .create-listing .new-listing .new-info .title {
   padding-left: 10px;
   margin: 16px 16px 0 0;

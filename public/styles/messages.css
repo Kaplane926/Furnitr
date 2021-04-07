@@ -33,7 +33,7 @@
   font-weight: bolder;
 }
 
-.chat .chat-content .chat-messages {
+.chat .chat-content #chat-messages {
   position: relative;
   padding: 40px 20px 40px 20px;
 }
@@ -142,7 +142,7 @@
   width: 100%;
 }
 
-.chat .chat-footer .reply-form .message-text {
+.chat .chat-footer .reply-form #message-text {
   overflow: hidden;
   margin: 16px;
   padding: 10px;
