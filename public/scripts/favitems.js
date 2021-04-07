@@ -6,6 +6,8 @@ function renderFavourites(){
     for(row of data.rows){
 
       html += `
+      <div class="page-title">Favourited Items</div>
+      <div class="item-card">
         <div class="liked-items">
         `
       html += `<img src="${row.image_url}">
@@ -22,7 +24,7 @@ function renderFavourites(){
     id ++
     }
     console.log(html)
-    $('.item-card').html(html)
+    $('.content').html(html)
   })
   .then(function(){
     $('.dislike').click(function(){
