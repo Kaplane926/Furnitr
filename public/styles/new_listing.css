@@ -1,0 +1,73 @@
+.create-listing {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+}
+
+.create-listing .listing-hdr {
+  font-size: 24px;
+  margin: 0 16px 0 16px;
+}
+
+.create-listing .new-listing {
+  font-size: 18px;
+  margin: 16px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.create-listing .new-listing .avatar {
+  height: 60px;
+  width: 60px;
+}
+
+.create-listing .new-listing .new-info {
+  margin: 0 16px 16px 16px;
+  width: 100%;
+  min-width: 300px;
+  font-size: 16px;
+  font-weight: normal;
+  border-radius: 5px;
+}
+
+.create-listing .new-listing .new-info .title {
+  padding-left: 10px;
+  margin: 16px 16px 0 0;
+  height: 50px;
+  width: 300px;
+  border-radius: 8px;
+}
+
+.create-listing .new-listing .new-info .price {
+  padding-left: 10px;
+  margin: 16px 16px 0 0;
+  height: 50px;
+  width: 300px;
+  border-radius: 8px;
+}
+
+.create-listing .new-listing .new-info .description {
+  padding: 10px 0 0 10px;
+  margin: 16px 16px 0 0;
+  height: 150px;
+  width: 300px;
+  border-radius: 8px;
+}
+
+.create-listing .address {
+  padding: 0 16px 16px 16px;
+  margin: 0 16px 16px 16px;
+  font-size: 16px;
+  font-weight: normal;
+  color: gray;
+}
+
+.create-listing .address input, .create-listing .address select {
+  padding-left: 10px;
+  margin: 16px 16px 0 0;
+  height: 50px;
+  width: 300px;
+  border-radius: 8px;
+}
