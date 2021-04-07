@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="styles/layouts.css" type="text/css" />
     <link rel="stylesheet" href="styles/nav.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
@@ -15,20 +15,35 @@
   </head>
 
   <body>
-    <h1>Items you like!</h1>
+    <h1 class="page-title">Liked Items</h1>
     <main>
       <!-- Liked images pulled from a database, maybe 10 per page?-->
-      <div class="liked items">
-        <img src="/images/shoe_chair.png">
-        <p>Link to full profile</p>
-      </div>
-      <div class="liked items">
-        <img src="/images/tiger_couch.png">
-        <p>Link to full profile</p>
-      </div>
-      <div class="liked items">
-        <img src="/images/sexy_couch.png">
-        <p>Link to full profile</p>
+      <div class="content" id="content">
+        <div class="item-card">
+          <div class="liked-items">
+            <img src="/images/Shoe_chair.png">
+            <p class="item-title">ITEM DATABASE.title</p>
+            <p class="item-desc">ITEM DATABASE.description</p>
+            <button  class="dislike">
+              <i class="fa fa-times" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="liked-items">
+            <img src="/images/tiger_couch.png">
+            <p class="item-title">ITEM DATABASE.title</p>
+            <p class="item-desc">ITEM DATABASE.description</p>
+            <button  class="dislike">
+              <i class="fa fa-times" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="liked-items">
+            <img src="/images/sexy_couch.png">
+            <p class="item-title">ITEM DATABASE.title</p>
+            <p class="item-desc">ITEM DATABASE.description</p>
+            <button  class="dislike">
+              <i class="fa fa-times" aria-hidden="true"></i>
+            </button>
+        </div>
       </div>
     </form>
     </main>
