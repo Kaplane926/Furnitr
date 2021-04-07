@@ -37,6 +37,7 @@ const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
 const furnitrRoutes = require("./routes/furnitr");
 const furnitrFavouriteRoutes = require("./routes/furnitrFavourite");
+const furnitrDislikeRoutes = require("./routes/furnitrDislike");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -44,6 +45,7 @@ const furnitrFavouriteRoutes = require("./routes/furnitrFavourite");
 app.use("/api/widgets", widgetsRoutes(db));
 app.use("/api/furnitr", furnitrRoutes(db));
 app.use("/api/furnitrFavourite", furnitrFavouriteRoutes(db));
+app.use("/api/furnitrDislike", furnitrDislikeRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 

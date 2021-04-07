@@ -13,10 +13,11 @@ module.exports = (db) => {
   router.post("/", (req, res) => {
     //const values = [1, 1]
     db.query(`
-    SELECT * FROM items
-    JOIN favourites ON items.id = item_id
-    WHERE user_id != 1
-    LIMIT 1;
+    SELECT * FROM items i
+    LEFT JOIN favourites f
+    ON i.id = f.item_id
+    AND f.user_id = 1
+    WHERE f.fav_id IS NULL;
     `
     )
       .then(data => {

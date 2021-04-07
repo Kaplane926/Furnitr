@@ -20,6 +20,7 @@ function fetchItem(){
     $('#content').data('item_id', item.id)
     $('.item-title').html(`${item.title} <b> ${item.price} </b>`)
     $('.item-desc').html(`${item.description}`)
+    $('.items').html(`<img src ="${item.image_url}"></img>`)
   })
 };
 
@@ -39,14 +40,15 @@ $(document).ready(function(){
 
   $('.dislike').click(function(){
     alert("You dislike this item")
-    $.ajax('/furnitr', { method: 'GET' })
+    const itemID = $('#content').data('item_id')
+    $.ajax(`/api/furnitrDislike/${itemID}`, { method: 'POST' })
     .then(function(data){
-      $('.items').html(`<img src="/images/sexy_couch_potato.png"></img>`)
-      //console.log(data)
-
-
-      console.log('ajax request called!')
+      alert("am I working?")
+      console.log("dislikes called! ", data)
+      fetchItem()
     })
+    .catch(console.log);
   })
 })
+
 
