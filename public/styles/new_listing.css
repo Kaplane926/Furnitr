@@ -18,7 +18,13 @@
   font-weight: bold;
 }
 
-.create-listing .new-listing .avatar {
+.create-listing .new-listing .user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.create-listing .new-listing .user .avatar {
   height: 60px;
   width: 60px;
 }
@@ -30,6 +36,14 @@
   font-size: 16px;
   font-weight: normal;
   border-radius: 5px;
+}
+
+.create-listing .new-listing .new-info .photos {
+  padding-left: 10px;
+  margin: 16px 16px 0 0;
+  height: 50px;
+  width: 300px;
+  border-radius: 8px;
 }
 
 .create-listing .new-listing .new-info .title {
@@ -64,7 +78,8 @@
   color: gray;
 }
 
-.create-listing .address input, .create-listing .address select {
+.create-listing .address input,
+.create-listing .address select {
   padding-left: 10px;
   margin: 16px 16px 0 0;
   height: 50px;
