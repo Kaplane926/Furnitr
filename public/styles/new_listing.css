@@ -64,39 +64,7 @@
   color: gray;
 }
 
-.create-listing .address .street {
-  padding-left: 10px;
-  margin: 6px 16px 0 0;
-  height: 50px;
-  width: 300px;
-  border-radius: 8px;
-}
-
-.create-listing .address .country {
-  padding-left: 10px;
-  margin: 16px 16px 0 0;
-  height: 50px;
-  width: 300px;
-  border-radius: 8px;
-}
-
-.create-listing .address .city {
-  padding-left: 10px;
-  margin: 16px 16px 0 0;
-  height: 50px;
-  width: 300px;
-  border-radius: 8px;
-}
-
-.create-listing .address .state {
-  padding-left: 10px;
-  margin: 16px 16px 0 0;
-  height: 50px;
-  width: 300px;
-  border-radius: 8px;
-}
-
-.create-listing .address .postal {
+.create-listing .address input, .create-listing .address select {
   padding-left: 10px;
   margin: 16px 16px 0 0;
   height: 50px;

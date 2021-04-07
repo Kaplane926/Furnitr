@@ -62,35 +62,7 @@
     font-weight: normal;
     color: gray;
 
-    .street {
-      padding-left: 10px;
-      margin: 6px 16px 0 0;
-      height: 50px;
-      width: 300px;
-      border-radius: 8px;
-    }
-    .country {
-      padding-left: 10px;
-      margin: 16px 16px 0 0;
-      height: 50px;
-      width: 300px;
-      border-radius: 8px;
-    }
-    .city {
-      padding-left: 10px;
-      margin: 16px 16px 0 0;
-      height: 50px;
-      width: 300px;
-      border-radius: 8px;
-    }
-    .state {
-      padding-left: 10px;
-      margin: 16px 16px 0 0;
-      height: 50px;
-      width: 300px;
-      border-radius: 8px;
-    }
-    .postal {
+    input, select {
       padding-left: 10px;
       margin: 16px 16px 0 0;
       height: 50px;
