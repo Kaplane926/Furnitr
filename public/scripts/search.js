@@ -9,7 +9,7 @@ const checkboxes = document.querySelectorAll("input[type='checkbox']"),
 
 var checkboxValues = [];
 
-populateCards();
+populateResults();
 
 checkboxes.forEach((box) => {
       //ensures that all checkboxes are unchecked when the window reloads
@@ -17,23 +17,11 @@ checkboxes.forEach((box) => {
       box.addEventListener("change", () => filterCards());
 });
 
-function populateCards() {
+function populateResults() {
       var time = 100;
 
       data.forEach((obj) => {
-            let red = Math.floor(Math.random() * (180 - 100) + 100);
-            let green = Math.floor(Math.random() * (180 - 100) + 100);
-            let blue = Math.floor(Math.random() * (180 - 100) + 100);
-
-            let randomColor = `rgb(${red},${green},${blue} )`;
-
-            var card = `
-            <div data-aos="fade-up" data-aos-duration=${time} data-aos-delay=300 class="card" style="   background-color:${randomColor}; margin:10px;">
-            <h1 class="title">${obj.title}</h1>
-            </div>
-        `;
-            time += 50;
-            wrapper.innerHTML += card;
+        
       });
 }
 
@@ -45,7 +33,7 @@ function grabCheckboxValues() {
       return checkboxValues;
 }
 
-function filterCards() {
+function filterItems() {
       wrapper.innerHTML = "";
       checkboxValues = grabCheckboxValues();
 
@@ -55,13 +43,9 @@ function filterCards() {
 
             let isMatch = result(classes, checkboxValues);
             if (isMatch) {
-                  let red = Math.floor(Math.random() * 200);
-                  let green = Math.floor(Math.random() * 200);
-                  let blue = Math.floor(Math.random() * 200);
 
-                  let randomColor = `rgb(${red},${green},${blue} )`;
 
-                  var card = `
+              var card = `
             <div data-aos="zoom-in" data-aos-duration=400 class="card" style="background-color:${randomColor}; margin:4px;" data-aos-offset="500">
             <h1 class="title">${item.title}</h1>
             </div>

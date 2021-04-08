@@ -8,7 +8,7 @@ const searchRoutes  = express.Router();
 module.exports = function(DataHelpers) {
 
   searchRoutes.get("/search_results", function(req, res) {
-    DataHelpers.getTweets((err, searches) => {
+    DataHelpers.getResults((err, searches) => {
       if (err) {
         res.status(500).json({ error: err.message });
       } else {
@@ -29,7 +29,7 @@ module.exports = function(DataHelpers) {
       }
     };
 
-    DataHelpers.saveTweet(search, (err) => {
+    DataHelpers.saveResults(search, (err) => {
       if (err) {
         res.status(500).json({ error: err.message });
       } else {
