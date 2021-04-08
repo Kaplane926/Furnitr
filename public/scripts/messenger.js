@@ -5,11 +5,11 @@ const escape = function (str) {
 }
 
 const loadChat = function () {
-  $.ajax(`/api/messages/2`, { method: 'POST' })
+  const url = $(location).attr('href');
+  const itemId = url.substring(url.lastIndexOf('/') + 1);
+  $.ajax(`/api/messages/${itemId}`, { method: 'POST' })
     .then(function (data) {
       const msgs = data.rows;
-      console.log("messages!")
-      console.log(msgs);
       $("#chat-messages").html('');
       renderChats(msgs);
       $('#message-text').val('');
@@ -23,10 +23,9 @@ const loadChat = function () {
 const renderChats = function (chats) {
   for (const chat of chats) {
     const $chat = createChatElement(chat);
-    $("#chat-messages").prepend($chat);
+    $("#chat-messages").append($chat);
   }
 }
-
 const createChatElement = function (chat) {
   if (chat.msg_class === 'contact') {
     console.log(chat);
@@ -53,13 +52,12 @@ const createChatElement = function (chat) {
 }
 
 $(document).ready(function () {
-
+console.log("chats");
   loadChat();
 
   // ajax post request
 
   $(".send").click(function (event) {
-    alert('i made it');
     event.preventDefault();
     const msg = $('#message-text').val().trim();
     console.log(msg);
@@ -71,7 +69,14 @@ $(document).ready(function () {
       //   $('#errmsg').html('Exceeded maximum number of characters allotted.');
       //   $('#err').slideDown("slow");
     } else {
-      $.ajax(`/api/sendMessage/${msg}`, { method: "POST" })
+      const url = $(location).attr('href');
+      const itemId = url.substring(url.lastIndexOf('/') + 1);
+
+      $.ajax({
+        url: `/api/sendMessage/${itemId}`,
+        method: "POST",
+        data: { data: msg }
+      })
         .then((result) => {
           const temp = loadChat();
         })
