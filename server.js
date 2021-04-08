@@ -44,7 +44,7 @@ const logoRoutes = require("./routes/logo");
 const unfavouriteRoutes = require("./routes/unfavourite");
 const createNewListingRoutes = require("./routes/createNewListing");
 const sendMessageRoutes = require("./routes/sendMessage");
-const searchResults = require("./routes/search_results")
+const itemsRoutes = require("./routes/items");
 
 
 
@@ -61,7 +61,7 @@ app.use("/api/logo", logoRoutes(db));
 app.use("/api/unfavourite", unfavouriteRoutes(db));
 app.use("/api/createNewListing", createNewListingRoutes(db));
 app.use("/api/sendMessage", sendMessageRoutes(db));
-app.use("/api/search_results", searchResults(db));
+app.use("/api/items", itemsRoutes(db));
 
 
 // Note: mount other resources here, using the same pattern above
