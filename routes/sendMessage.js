@@ -13,7 +13,8 @@ module.exports = (db) => {
   router.post("/:msg", (req, res) => {
     console.log(req.params.msg)
     const value = [req.params.msg]
-    db.query(`
+    console.log('the route is wokring!')
+    /*db.query(`
     INSERT INTO messages
     `
     )
@@ -28,7 +29,7 @@ module.exports = (db) => {
           .status(500)
           .json({ error: err.message });
       });
-
+*/
   });
   return router;
 };
