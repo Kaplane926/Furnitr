@@ -1,3 +1,6 @@
+// var moment = require('moment');
+// import { formatDistanceToNow } from 'date-fns';
+
 const escape = function (str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
@@ -27,6 +30,9 @@ const renderChats = function (chats) {
   }
 }
 const createChatElement = function (chat) {
+
+console.log("chat.msg_crated: ", chat.msg_created);
+
   if (chat.msg_class === 'contact') {
     console.log(chat);
     let $contact = `
@@ -34,7 +40,7 @@ const createChatElement = function (chat) {
     <img class="avatar" src="${chat.avatar}">
     <div class="bubble">
       <div class="message">${escape(chat.message)}</div>
-      <div class="time">${chat.msg_created}</div>
+      <div class="time">${(chat.msg_created)}</div>
     </div>
   </div>`;
     return $contact;
@@ -44,7 +50,7 @@ const createChatElement = function (chat) {
     <div class="message-row me">
     <div class="bubble">
       <div class="message">${escape(chat.message)}</div>
-      <div class="time">${chat.msg_created}</div>
+      <div class="time">${(chat.msg_created)}</div>
     </div>
   </div>`;
     return $me;

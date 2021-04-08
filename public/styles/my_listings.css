@@ -1,0 +1,48 @@
+#seller-list {
+  width: 100%;
+}
+
+#seller-list .item-img img {
+  height: 75px;
+  width: 75px;
+}
+
+#seller-list .item-title {
+  font-size: 24px;
+}
+
+#seller-list .item-desc {
+  font-size: 16px;
+  color: darkgray;
+}
+
+#seller-list .sold {
+  color: green;
+  font-size: 18px;
+}
+
+#seller-list .remove {
+  color: red;
+  font-size: 18px;
+}
+
+#seller-list .msg {
+  color: blue;
+  font-size: 18px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  filter: drop-shadow(0 0 0 5px #adadad);
+}
+
+tr {
+  border: 1px solid darkgray;
+  border-radius: 10px;
+}
+
+td {
+  padding: 10px;
+  background-color: white;
+}
