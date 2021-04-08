@@ -66,7 +66,7 @@ app.use("/api/createNewListing", createNewListingRoutes(db));
 
 
 app.get("/", (req, res) => {
-  res.render("index");
+  res.redirect("furnitr");
 });
 
 // app.post("/", (req, res) => {
@@ -169,6 +169,13 @@ app.get("/furniture", (req, res) => {
 
 app.get("/messages", (req, res) => {
   res.render("messages");
+});
+
+
+// search
+
+app.get("/search_results", (req, res) => {
+  res.render("search_results");
 });
 
 // app.post("/messages", (req, res) => {

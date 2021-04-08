@@ -1,38 +1,35 @@
 "use strict";
 
-const userHelper    = require("../lib/util/user-helper")
+const searchHelper    = require(".public/scripts/search")
 
 const express       = require('express');
-const tweetsRoutes  = express.Router();
+const searchRoutes  = express.Router();
 
 module.exports = function(DataHelpers) {
 
-  tweetsRoutes.get("/", function(req, res) {
-    DataHelpers.getTweets((err, tweets) => {
+  searchRoutes.get("/search_results", function(req, res) {
+    DataHelpers.getTweets((err, searches) => {
       if (err) {
         res.status(500).json({ error: err.message });
       } else {
-        res.json(tweets);
+        res.json(searches);
       }
     });
   });
 
-  tweetsRoutes.post("/", function(req, res) {
+  searchRoutes.post("/search_results", function(req, res) {
     if (!req.body.text) {
       res.status(400).json({ error: 'invalid request: no data in POST body'});
       return;
     }
 
-    const user = req.body.user ? req.body.user : userHelper.generateRandomUser();
-    const tweet = {
-      user: user,
+    const search = {
       content: {
         text: req.body.text
-      },
-      created_at: Date.now()
+      }
     };
 
-    DataHelpers.saveTweet(tweet, (err) => {
+    DataHelpers.saveTweet(search, (err) => {
       if (err) {
         res.status(500).json({ error: err.message });
       } else {
@@ -41,6 +38,6 @@ module.exports = function(DataHelpers) {
     });
   });
 
-  return tweetsRoutes;
+  return searchRoutes;
 
 }
