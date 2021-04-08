@@ -71,7 +71,7 @@ $(document).ready(function () {
       //   $('#errmsg').html('Exceeded maximum number of characters allotted.');
       //   $('#err').slideDown("slow");
     } else {
-      $.ajax(`/api/msgSendRoute`, { method: "POST" })
+      $.ajax(`/api/sendMessage/${msg}`, { method: "POST" })
         .then((result) => {
           const temp = loadChat();
         })

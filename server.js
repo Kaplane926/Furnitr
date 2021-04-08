@@ -36,7 +36,6 @@ app.use(express.static("public"));
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
 const messagesRoutes = require("./routes/messages");
-const msgSendRoute = require("./routes/msgSendRoute");
 const furnitrRoutes = require("./routes/furnitr");
 const furnitrFavouriteRoutes = require("./routes/furnitrFavourite");
 const furnitrDislikeRoutes = require("./routes/furnitrDislike");
@@ -44,13 +43,15 @@ const favouritesRoutes = require("./routes/favourites");
 const logoRoutes = require("./routes/logo");
 const unfavouriteRoutes = require("./routes/unfavourite");
 const createNewListingRoutes = require("./routes/createNewListing");
+const sendMessageRoutes = require("./routes/sendMessage");
+
+
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 //app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use("/api/messages", messagesRoutes(db));
-app.use("/api/msgSendRoute", msgSendRoute(db));
 app.use("/api/furnitr", furnitrRoutes(db));
 app.use("/api/furnitrFavourite", furnitrFavouriteRoutes(db));
 app.use("/api/furnitrDislike", furnitrDislikeRoutes(db));
@@ -58,6 +59,8 @@ app.use("/api/favourites", favouritesRoutes(db));
 app.use("/api/logo", logoRoutes(db));
 app.use("/api/unfavourite", unfavouriteRoutes(db));
 app.use("/api/createNewListing", createNewListingRoutes(db));
+app.use("/api/sendMessage", sendMessageRoutes(db));
+
 
 // Note: mount other resources here, using the same pattern above
 
