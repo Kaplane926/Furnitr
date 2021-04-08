@@ -1,36 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <%- include ../public/index.html %>
+
+<head>
+
+  <%- include ../public/index.html %>
     <title>Items</title>
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layouts.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-  </head>
+    <script type="text/javascript" src="/scripts/myListings.js"></script>
 
-  <body>
-    <h1>Items you've listed!</h1>
-    <main>
-      <!-- Liked images pulled from a database, maybe 10 per page?-->
-      <div class="listed items">
-        <img src="/images/shoe_chair.png">
-        <p>Link to full profile</p>
+</head>
+
+<body>
+  <!-- Liked images pulled from a database, maybe 10 per page?-->
+  <div class="content" id="content">
+    <div class="page-title">My Items
+      <div class="item-card">
+        <div class="liked-items">
+          <img src="/images/Shoe_chair.png">
+          <p class="item-title">ITEM DATABASE.title</p>
+          <p class="item-desc">ITEM DATABASE.description</p>
+          <button class="dislike">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
       </div>
-      <div class="listed items">
+    </div>
+    <div class="item-card">
+      <div class="liked-items">
         <img src="/images/tiger_couch.png">
-        <p>Link to full profile</p>
+        <p class="item-title">ITEM DATABASE.title</p>
+        <p class="item-desc">ITEM DATABASE.description</p>
+        <button class="dislike">
+          <i class="fa fa-times"></i>
+        </button>
       </div>
-      <div class="listed items">
+    </div>
+    <div class="item-card">
+      <div class="liked-items">
         <img src="/images/sexy_couch.png">
-        <p>Link to full profile</p>
+        <p class="item-title">ITEM DATABASE.title</p>
+        <p class="item-desc">ITEM DATABASE.description</p>
+        <button class="dislike">
+          <i class="fa fa-times"></i>
+        </button>
       </div>
-    </form>
-    </main>
-  </body>
+    </div>
+
+</body>
+
 </html>
