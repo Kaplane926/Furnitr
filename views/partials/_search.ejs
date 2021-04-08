@@ -1,24 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>Document</title>
-        <link rel="stylesheet" href="search.css" />
-        <link rel="stylesheet" href="app.css" />
-    </head>
-    <body>
-        <div class="container">
-            <div id="searchWrapper">
-                <input
-                    type="text"
-                    name="searchBar"
-                    id="searchBar"
-                />
-            </div>
-            <ul id="itemsList"></ul>
-        </div>
-        <script src="app.js"></script>
-    </body>
-</html>
+<head>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+<div id="filter-input-wrapper">
+    <div class="input-block">
+          <input value="price" type="checkbox" id="under-100" class="filter-input" name="filter" />
+          <label for="price" class="filter-label info-mild">Under $100</label>
+    </div>
+    <div class="input-block">
+          <input value="price" type="checkbox" id="100-500" class="filter-input" name="filter" />
+          <label for="price" class="filter-label info-mild">$100-500</label>
+    </div>
+    <div class="input-block">
+          <input value="price" type="checkbox" id="over-500" class="filter-input" name="filter" />
+          <label for="price" class="filter-label info-med">Over $500</label>
+    </div>
+
+
+    <div class="input-block">
+      <input value="item-type" type="checkbox" id="sofa" class="filter-input" name="filter" />
+      <label for="item-type" class="filter-label info-mild">Sofa</label>
+    </div>
+    <div class="input-block">
+      <input value="item-type" type="checkbox" id="chair" class="filter-input" name="filter" />
+      <label for="item-type" class="filter-label info-mild">Chair</label>
+    </div>
+    <div class="input-block">
+      <input type="checkbox" value="item-type" id="bed" class="filter-input" name="filter" />
+      <label for="item-type" class="filter-label info-med">Bed</label>
+    </div>
+    <div class="input-block">
+      <input value="item-type" type="checkbox" id="table" class="filter-input" name="filter" />
+      <label for="item-type" class="filter-label info-mild">Table</label>
+    </div>
+    <div class="input-block">
+      <input value="item-type" type="checkbox" id="desk" class="filter-input" name="filter" />
+      <label for="item-type" class="filter-label info-mild">Desk</label>
+    </div>
+
+
+
+    <div class="input-block">
+      <input value="zodiac" type="checkbox" id="aries" class="filter-input" name="filter" />
+      <label for="zodiac" class="filter-label info-mild">Aries</label>
+    </div>
+    <div class="input-block">
+      <input value="zodiac" type="checkbox" id="taurus" class="filter-input" name="filter" />
+      <label for="zodiac" class="filter-label info-mild">Taurus</label>
+    </div>
+    <div class="input-block">
+      <input type="checkbox" value="zodiac" id="gemini" class="filter-input" name="filter" />
+      <label for="zodiac" class="filter-label info-med">Gemini</label>
+    </div>
+    <div class="input-block">
+      <input value="zodiac" type="checkbox" id="cancer" class="filter-input" name="filter" />
+      <label for="zodiac" class="filter-label info-mild">Cancer</label>
+    </div>
+    <div class="input-block">
+      <input value="zodiac" type="checkbox" id="leo" class="filter-input" name="filter" />
+      <label for="zodiac" class="filter-label info-mild">Leo</label>
+    </div>
+    <div class="input-block">
+      <input type="checkbox" value="zodiac" id="virgo" class="filter-input" name="filter" />
+      <label for="zodiac" class="filter-label info-med">Virgo</label>
+    </div>
+    <div class="input-block">
+      <input value="zodiac" type="checkbox" id="libra" class="filter-input" name="filter" />
+      <label for="zodiac" class="filter-label info-mild">Libra</label>
+    </div>
+    <div class="input-block">
+      <input value="zodiac" type="checkbox" id="scorpio" class="filter-input" name="filter" />
+      <label for="zodiac" class="filter-label info-mild">Scorpio</label>
+    </div>
+    <div class="input-block">
+      <input type="checkbox" value="zodiac" id="saggitarius" class="filter-input" name="filter" />
+      <label for="zodiac" class="filter-label info-med">Saggitarius</label>
+    </div>
+    <div class="input-block">
+      <input value="zodiac" type="checkbox" id="capricorn" class="filter-input" name="filter" />
+      <label for="zodiac" class="filter-label info-mild">Capricorn</label>
+    </div>
+    <div class="input-block">
+      <input value="zodiac" type="checkbox" id="aquarius" class="filter-input" name="filter" />
+      <label for="zodiac" class="filter-label info-mild">Aquarius</label>
+    </div>
+    <div class="input-block">
+      <input type="checkbox" value="zodiac" id="pisces" class="filter-input" name="filter" />
+      <label for="zodiac" class="filter-label info-med">Pisces</label>
+    </div>
+</div>
+
+<div id="wrapper" style="width:100%; display:flex; flex-wrap:wrap; padding:40px"></div>

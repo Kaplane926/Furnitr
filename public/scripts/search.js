@@ -1,69 +1,72 @@
+AOS.init();
 
+const data = [
 
+];
 
+const checkboxes = document.querySelectorAll("input[type='checkbox']"),
+      cardContainer = document.getElementById("wrapper");
 
-// const escape = function (str) {
-//     let div = document.createElement('div');
-//     div.appendChild(document.createTextNode(str));
-//     return div.innerHTML;
-//   }
+var checkboxValues = [];
 
-// const itemsList = document.getElementById('itemsList');
-// const searchBar = document.getElementById('searchBar');
-// let items = [];
+populateCards();
 
-// searchBar.addEventListener('keyup', (e) => {
-//     const searchString = e.target.value.toLowerCase();
+checkboxes.forEach((box) => {
+      //ensures that all checkboxes are unchecked when the window reloads
+      box.checked = false;
+      box.addEventListener("change", () => filterCards());
+});
 
-//     const filteredItems = items.filter((items) => {
-//         return (
-//           items.title.toLowerCase().includes(searchString) ||
-//           items.price.toLowerCase().includes(searchString) ||
-//           items.zodiac_sign.toLowerCase().includes(searchString)
-//         );
-//     });
-//     displayItems(filteredItems);
-// });
+function populateCards() {
+      var time = 100;
 
-// const loadItems = async () => {
-//     try {
-//         const res = await fetch('link to database');
-//         items = await res.json();
-//         displayItems(items);
-//     } catch (err) {
-//         console.error(err);
-//     }
-// };
+      data.forEach((obj) => {
+            let red = Math.floor(Math.random() * (180 - 100) + 100);
+            let green = Math.floor(Math.random() * (180 - 100) + 100);
+            let blue = Math.floor(Math.random() * (180 - 100) + 100);
 
-// const displayItems = (items) => {
-//     const htmlString = items
-//         .map((item) => {
-//             return `
-//             <li class="character">
-//                 <h2>${items.name}</h2>
-//                 <p>${items.description}</p>
-//                 <img src="${items.image}"></img>
-//             </li>
-//         `;
-//         })
-//         .join('');
-//     itemsList.innerHTML = htmlString;
-// };
+            let randomColor = `rgb(${red},${green},${blue} )`;
 
-// loadItems();
+            var card = `
+            <div data-aos="fade-up" data-aos-duration=${time} data-aos-delay=300 class="card" style="   background-color:${randomColor}; margin:10px;">
+            <h1 class="title">${obj.title}</h1>
+            </div>
+        `;
+            time += 50;
+            wrapper.innerHTML += card;
+      });
+}
 
-// jQuery(document).ready(function($){
-//     $('.live-search-list li').each(function(){
-//     $(this).attr('data-search-term', $(this).text().toLowerCase());
-//     });
-//     $('.live-search-box').on('keyup', function(){
-//     var searchTerm = $(this).val().toLowerCase();
-//         $('.live-search-list li').each(function(){
-//             if ($(this).filter('[data-search-term *= ' + searchTerm + ']').length > 0 || searchTerm.length < 1) {
-//                 $(this).show();
-//             } else {
-//                 $(this).hide();
-//             }
-//         });
-//     });
-//   });
+function grabCheckboxValues() {
+      var checkboxValues = [];
+      checkboxes.forEach((checkbox) => {
+            if (checkbox.checked) checkboxValues.push(checkbox.value);
+      });
+      return checkboxValues;
+}
+
+function filterCards() {
+      wrapper.innerHTML = "";
+      checkboxValues = grabCheckboxValues();
+
+      data.forEach((item) => {
+            let classes = item.classes;
+            let result = (arr, target) => target.every((v) => arr.includes(v));
+
+            let isMatch = result(classes, checkboxValues);
+            if (isMatch) {
+                  let red = Math.floor(Math.random() * 200);
+                  let green = Math.floor(Math.random() * 200);
+                  let blue = Math.floor(Math.random() * 200);
+
+                  let randomColor = `rgb(${red},${green},${blue} )`;
+
+                  var card = `
+            <div data-aos="zoom-in" data-aos-duration=400 class="card" style="background-color:${randomColor}; margin:4px;" data-aos-offset="500">
+            <h1 class="title">${item.title}</h1>
+            </div>
+        `;
+                  wrapper.innerHTML += card;
+            }
+      });
+}
