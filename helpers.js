@@ -149,43 +149,53 @@ LIMIT 1;`
 
 // function for search bar
 
-const furnitureList = document.getElementById('furnitureList');
+const charactersList = document.getElementById('charactersList');
 const searchBar = document.getElementById('searchBar');
-let furnitureItems = [];
+let items = [];
 
 searchBar.addEventListener('keyup', (e) => {
     const searchString = e.target.value.toLowerCase();
 
-    const filteredFurniture = furnitureItems.filter((furniture) => {
+    const filteredItems = items.filter((items) => {
         return (
-            furniture.name.toLowerCase().includes(searchString) ||
-            furniture.house.toLowerCase().includes(searchString)
+          items.title.toLowerCase().includes(searchString) ||
+          items.price.toLowerCase().includes(searchString) ||
+          items.description.toLowerCase().includes(searchString) ||
+          items.date_posted.toLowerCase().includes(searchString) ||
+          items.country.toLowerCase().includes(searchString) ||
+          items.street.toLowerCase().includes(searchString) ||
+          items.city.toLowerCase().includes(searchString) ||
+          items.province.toLowerCase().includes(searchString) ||
+          items.postal_code.toLowerCase().includes(searchString) ||
+          items.zodiac_sign.toLowerCase().includes(searchString)
         );
     });
-    displayFurniture(filteredCharacters);
+    displayItems(filteredCharacters);
 });
 
-const loadFurniture = async () => {
+const loadItems = async () => {
     try {
-        const res = await fetch('');
-        furnitureItems = await res.json();
-        displayFurniture(furnitureItems);
+        const res = await fetch('link to database');
+        items = await res.json();
+        displayItems(items);
     } catch (err) {
         console.error(err);
     }
 };
 
-const displayFurniture = (furnitureItems) => {
-    const htmlString = furnitureItems
-        .map((furniture) => {
+const displayItems = (items) => {
+    const htmlString = items
+        .map((item) => {
             return `
-            <li class="furniture">
-                <h2>${furniture.name}</h2>
+            <li class="character">
+                <h2>${items.name}</h2>
+                <p>House: ${items.description}</p>
+                <img src="${items.image}"></img>
             </li>
         `;
         })
         .join('');
-    furnitureList.innerHTML = htmlString;
+    itemsList.innerHTML = htmlString;
 };
 
-loadFurniture();
+loadItems();
