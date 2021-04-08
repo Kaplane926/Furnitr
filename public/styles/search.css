@@ -1,0 +1,35 @@
+nav {
+    color: #FFFFFF;
+    font-family: 'Lato', sans-serif;
+    background-color: white;
+    filter: drop-shadow(0 0 2px #707070);
+    height: 50px;
+    padding: 1.5rem;
+    display: fixed;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+.website-title {
+    font-size: 45px;
+  }
+
+.subtitle {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 25px;
+  font-weight: 300;
+  padding-left: 25px;
+}
+
+.write-a-new-tweet{
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}

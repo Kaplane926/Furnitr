@@ -1,12 +1,11 @@
-/* .page-layout{
+.page-layout{
     display: flex;
     flex-direction: row;
   }
   .content {
-    display: flex;
-    flex-direction: column  ;
-    justify-content: center;
-    align-items: center;
+    display: inline-grid;
+    grid-template-columns: 400px 400px 400px 400px;
+    grid-template-rows: 400px 400px 400px 400px;
     padding: 20px;
     float: right;
     height: auto;
@@ -70,4 +69,4 @@
     font-size: 24px;
     filter: drop-shadow(0 0 5px #adadad);
   }
-   */
+  
