@@ -6,10 +6,11 @@ const escape = function (str) {
 
 const loadChat = function () {
   $.ajax(`/api/messages/2`, { method: 'POST' })
-    .then((result) => {
-      alert("am I running?")
+    .then(function (data) {
+      const msgs = data.rows[0];
+      console.log(msgs);
       $("#chat-messages").html('');
-      renderChats(result);
+      renderChats(msgs);
       $('#message-text').val('');
     })
     .catch(err => {
@@ -19,20 +20,21 @@ const loadChat = function () {
 };
 
 const renderChats = function (chats) {
-  for (const chat of chats) {
-    const $chats = createChatElement(chats);
-    $("#chat-messages").append($chats);
+  for (const chat in chats) {
+    const $chat = createChatElement(chat);
+    $("#chat-messages").prepend($chat);
   }
 }
 
 const createChatElement = function (chat) {
   if (chat.msg_class === 'contact') {
+    console.log(chat);
     let $contact = `
     <div class="message-row contact">
     <img class="avatar" src="${chat.avatar}">
     <div class="bubble">
       <div class="message">${escape(chat.message)}</div>
-      <div class="time">${chat.message_created}</div>
+      <div class="time">${chat.msg_created}</div>
     </div>
   </div>`;
     return $contact;
@@ -42,7 +44,7 @@ const createChatElement = function (chat) {
     <div class="message-row me">
     <div class="bubble">
       <div class="message">${escape(chat.message)}</div>
-      <div class="time">${moment(chat.message_created).fromNow()}</div>
+      <div class="time">${chat.msg_created}</div>
     </div>
   </div>`;
     return $me;
@@ -51,14 +53,7 @@ const createChatElement = function (chat) {
 
 $(document).ready(function () {
 
-  console.log("doc ready");
-
   loadChat();
-
-  // function containing the ajax get request
-
-
-  // data received from the server
 
   // ajax post request
   $("form").submit(function (event) {
@@ -68,12 +63,12 @@ $(document).ready(function () {
     if (!msg) {
       $('#errmsg').html('Text must be entered.');
       $('#err').slideDown("slow");
-    // } else if (msg.length > 140) {
-    //   $('#errmsg').html('Exceeded maximum number of characters allotted.');
-    //   $('#err').slideDown("slow");
+      // } else if (msg.length > 140) {
+      //   $('#errmsg').html('Exceeded maximum number of characters allotted.');
+      //   $('#err').slideDown("slow");
     } else {
       $.ajax({
-        url: "/api/messages",
+        url: "/api/messages/2",
         method: "POST",
         data: $(this).serialize()
       })
