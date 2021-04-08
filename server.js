@@ -35,7 +35,7 @@ app.use(express.static("public"));
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
-const messageRoutes = require("./routes/messages");
+const messagesRoutes = require("./routes/messages");
 const furnitrRoutes = require("./routes/furnitr");
 const furnitrFavouriteRoutes = require("./routes/furnitrFavourite");
 const furnitrDislikeRoutes = require("./routes/furnitrDislike");
@@ -49,7 +49,7 @@ const createNewListingRoutes = require("./routes/createNewListing");
 // Note: Feel free to replace the example routes below with your own
 //app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
-app.use("/api/messages", messageRoutes(db));
+app.use("/api/messages", messagesRoutes(db));
 app.use("/api/furnitr", furnitrRoutes(db));
 app.use("/api/furnitrFavourite", furnitrFavouriteRoutes(db));
 app.use("/api/furnitrDislike", furnitrDislikeRoutes(db));

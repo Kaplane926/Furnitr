@@ -55,7 +55,7 @@ const router = express.Router();
 
 module.exports = (db) => {
 
-  router.get("/messages/:id", (req, res) => {
+  router.post("/:id", (req, res) => {
     console.log("here router");
     const userID = req.params.id;
 
