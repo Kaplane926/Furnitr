@@ -45,6 +45,7 @@ const unfavouriteRoutes = require("./routes/unfavourite");
 const createNewListingRoutes = require("./routes/createNewListing");
 const sendMessageRoutes = require("./routes/sendMessage");
 const itemsRoutes = require("./routes/items");
+const removeItemRoutes = require("./routes/removeItem");
 
 
 
@@ -62,6 +63,7 @@ app.use("/api/unfavourite", unfavouriteRoutes(db));
 app.use("/api/createNewListing", createNewListingRoutes(db));
 app.use("/api/sendMessage", sendMessageRoutes(db));
 app.use("/api/items", itemsRoutes(db));
+app.use("/api/removeItem", removeItemRoutes(db));
 
 
 // Note: mount other resources here, using the same pattern above
