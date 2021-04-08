@@ -9,6 +9,7 @@ const bodyParser = require("body-parser");
 const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
+const cookieSession = require('cookie-session');
 
 // PG database client/connection setup
 const { Pool } = require('pg');
@@ -30,6 +31,11 @@ app.use("/styles", sass({
   outputStyle: 'expanded'
 }));
 app.use(express.static("public"));
+
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1', 'key2']
+}));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
@@ -174,8 +180,9 @@ app.get("/furniture", (req, res) => {
 
 // messages
 
-app.get("/messages", (req, res) => {
-  res.render("messages");
+app.get("/messages/:id", (req, res) => {
+  const id = req.params.id;
+  res.render(`messages`);
 });
 
 
@@ -191,7 +198,7 @@ app.get("/search_results", (req, res) => {
 
 app.get('/login/:id', (req, res) => {
   req.session.user_id = req.params.id;
-  res.redirect('/');
+  res.redirect('/furnitr');
 });
 
 app.listen(PORT, () => {
