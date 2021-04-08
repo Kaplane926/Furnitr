@@ -7,7 +7,8 @@ const escape = function (str) {
 const loadChat = function () {
   $.ajax(`/api/messages/2`, { method: 'POST' })
     .then(function (data) {
-      const msgs = data.rows[0];
+      const msgs = data.rows;
+      console.log("messages!")
       console.log(msgs);
       $("#chat-messages").html('');
       renderChats(msgs);
@@ -20,7 +21,7 @@ const loadChat = function () {
 };
 
 const renderChats = function (chats) {
-  for (const chat in chats) {
+  for (const chat of chats) {
     const $chat = createChatElement(chat);
     $("#chat-messages").prepend($chat);
   }
@@ -56,9 +57,12 @@ $(document).ready(function () {
   loadChat();
 
   // ajax post request
-  $("form").submit(function (event) {
+
+  $(".send").click(function (event) {
+    alert('i made it');
     event.preventDefault();
     const msg = $('#message-text').val().trim();
+    console.log(msg);
 
     if (!msg) {
       $('#errmsg').html('Text must be entered.');
@@ -67,11 +71,7 @@ $(document).ready(function () {
       //   $('#errmsg').html('Exceeded maximum number of characters allotted.');
       //   $('#err').slideDown("slow");
     } else {
-      $.ajax({
-        url: "/api/messages/2",
-        method: "POST",
-        data: $(this).serialize()
-      })
+      $.ajax(`/api/sendMessage/${msg}`, { method: "POST" })
         .then((result) => {
           const temp = loadChat();
         })
@@ -80,5 +80,6 @@ $(document).ready(function () {
           console.log(err);
         });
     }
+    loadChat();
   });
 });

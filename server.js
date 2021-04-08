@@ -43,6 +43,9 @@ const favouritesRoutes = require("./routes/favourites");
 const logoRoutes = require("./routes/logo");
 const unfavouriteRoutes = require("./routes/unfavourite");
 const createNewListingRoutes = require("./routes/createNewListing");
+const sendMessageRoutes = require("./routes/sendMessage");
+
+
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -56,6 +59,8 @@ app.use("/api/favourites", favouritesRoutes(db));
 app.use("/api/logo", logoRoutes(db));
 app.use("/api/unfavourite", unfavouriteRoutes(db));
 app.use("/api/createNewListing", createNewListingRoutes(db));
+app.use("/api/sendMessage", sendMessageRoutes(db));
+
 
 // Note: mount other resources here, using the same pattern above
 
