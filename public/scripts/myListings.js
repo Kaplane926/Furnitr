@@ -53,7 +53,7 @@ function renderListings() {
       $('.sold').click(function() {
         const buttonId = $(this).attr('id');
         const itemId = $(`#${buttonId}`).data('id');
-        alert(itemId);
+
         $.ajax(`/api/soldItem/${itemId}`, { method: 'POST' })
           .then(function() {
             renderListings();

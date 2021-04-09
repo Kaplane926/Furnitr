@@ -12,6 +12,5 @@ CREATE TABLE items (
   city VARCHAR(255),
   province VARCHAR(255),
   postal_code VARCHAR(255),
-  zodiac_sign VARCHAR(255),
   status VARCHAR(50)
 );
