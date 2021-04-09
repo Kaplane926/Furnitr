@@ -8,20 +8,27 @@ function renderListings(){
     //console.log("UserID:", userID)
 
     for(row of data.rows){
-      //console.log("seller_ID: ", row.seller_id)
-
-
+      let itemClass = '';
+      let soldBtn = '';
+      if (row.status === 'Sold') {
+       itemClass = 'grayout';
+      } else {
+        soldBtn = `<button id='s${id}' class="sold" data-id="${row.id}">Sold</button>`;
+      }
+      if (row.seller_id === 1) {
       html += `<tr>
       `
-      html += `<td class="item-img"><img src="${row.image_url}"></td>
+      html += `<td class="item-img ${itemClass}"><img src="${row.image_url}"></td>
       `
-      html += `<td class="item-title">${row.title}</td>
+      html += `<td class="item-title ${itemClass}">${row.title}</td>
       `
-      html += `<td class="item-desc">${row.description}</td>
+      html += `<td class="item-desc ${itemClass}">${row.description}</td>
       `
-      html += `<td><button  id = '${id}' class="remove" data-id = "${row.id}">Remove</button></td>`
+      html += `<td class="item-${row.status} ${itemClass}">${row.status}</td>
+      `
+      html += `<td><button id='${id}' class="remove" data-id="${row.id}">Remove</button></td>`
 
-      html += `<td><button class="sold" data-id = "${row.id}">Sold</button></td>
+      html += `<td>${soldBtn}</td>
      `
       html += `<td>
       <form method="GET" action="/messages/${row.id}"><button type="delete"
@@ -36,8 +43,8 @@ function renderListings(){
   })
   .then(function(){
     $('.remove').click(function(){
-      const buttonId = $(this).attr('id')
-      const itemId = $(`#${buttonId}`).data('id')
+      const buttonId = $(this).attr('id');
+      const itemId = $(`#${buttonId}`).data('id');
       alert(buttonId)
       $.ajax(`/api/removeItem/${itemId}`, { method: 'POST' })
       .then(function(){
@@ -46,10 +53,10 @@ function renderListings(){
 
     })
     $('.sold').click(function(){
-      const buttonId = $(this).attr('id')
-      const itemId = $(`#${buttonId}`).data('id')
-      alert(buttonId)
-      $.ajax(`/api/removeItem/${itemId}`, { method: 'POST' })
+      const buttonId = $(this).attr('id');
+      const itemId = $(`#${buttonId}`).data('id');
+      alert(itemId)
+      $.ajax(`/api/soldItem/${itemId}`, { method: 'POST' })
       .then(function(){
         renderListings()
       })
