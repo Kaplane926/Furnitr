@@ -1,18 +1,18 @@
-* {
-  padding: 0;
-  margin: 0;
+/* * {
+  padding: 10;
+  margin: 10;
   box-sizing: border-box;
 }
 
 html {
-  font-size: 14px;
+  font-size: 20px;
   font-family: "Work Sans";
 }
 
 body {
   background-color: #fff;
-}
-/* 
+} */
+/*
 #filter-input-wrapper {
   background: white;
   box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.2);

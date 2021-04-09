@@ -6,7 +6,7 @@
   <!-- External CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet">
 
   <!-- App CSS -->
   <link rel="stylesheet" href="vendor/normalize-4.1.1.css" type="text/css" />
@@ -21,10 +21,6 @@
   <!-- External JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-  <!-- App JS -->
-
-
-
 </head>
 
 <body>
@@ -32,61 +28,46 @@
   <div class="page-layout">
     <div class="sidebar">
       <div class="topnav">
-        <div class="avatar-container">
-          <img class="avatar" src="/images/avatars/Christy.jpg">
+        <div class="logo-container">
+          <img class="logo" src="/images/logo/logo-white-text.svg">
         </div>
-        <header class="prof-hdr">My Profile</header>
-
       </div>
       <div class="nav-body">
         <div class="profile-links">
           <a class="nav-item nav-link" href="/my_listings">My Listings</a>
           <a class="nav-item nav-link" href="/favourites">Favourites</a>
         </div>
-        <div>Search Filters</div>
-        <div id="filter-input-wrapper">
-          <div class="input-block">
+        <div class="search">
+          <div class="search-title">Search Filters</div>
+          <div id="filter-input-wrapper">
+            <div class="input-block">
+              <div class="under">
                 <input value="price" type="checkbox" id="under-100" class="filter-input" name="filter" />
                 <label for="price" class="filter-label info-mild">Under $100</label>
-          </div>
-          <div class="input-block">
+              </div>
+              <div class="mid">
                 <input value="price" type="checkbox" id="100-500" class="filter-input" name="filter" />
                 <label for="price" class="filter-label info-mild">$100-500</label>
-          </div>
-          <div class="input-block">
+              </div>
+              <div class="over">
                 <input value="price" type="checkbox" id="over-500" class="filter-input" name="filter" />
                 <label for="price" class="filter-label info-med">Over $500</label>
+              </div>
+            </div>
           </div>
         </div>
         <div class="link-content">
-          <header class="hdr">Start Favouriting!</header>
+          <header class="hdr"></header>
           Your favourites will appear here once you start to Like items. You can message the seller directly from here
           once you like their item and are ready to spark up negotiations.
         </div>
-        <div class="logo-container">
-          <img class="logo" src="/images/logo/logo-colour-text.svg">
-        </div>
       </div>
     </div>
-
-
-    <!-- Main Page content -->
-    <!-- <div class="content">
-      <div class="item-card">
-        <img class="items" src="/images/Shoe_chair.png">
-        <div class="item-title">
-          Title <b>price</b>
-        </div>
-        <div class="item-desc">Description</div>
-      </div>
-    </div>
-  </div> -->
 </body>
 <script>
-  $(document).ready(function(){
-    $('.logo').click(function(){
+  $(document).ready(function () {
+    $('.logo').click(function () {
       window.location.href = '/furnitr'
-
     })
   })
 </script>
