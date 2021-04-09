@@ -7,6 +7,11 @@
   width: 75px;
 }
 
+#seller-list .item-img2 img {
+  height: 100px;
+  width: 100px;
+}
+
 #seller-list .item-title {
   font-size: 24px;
 }
@@ -22,21 +27,25 @@
 }
 
 #seller-list .remove {
-  color: red;
   font-size: 18px;
+  color: #eb1f1f;
 }
 
 #seller-list .msg {
-  color: blue;
   font-size: 18px;
+  color: #1e33ec;
 }
 
 #seller-list .item-Available {
   color: green;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 #seller-list .item-Sold {
   color: red;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .grayout {

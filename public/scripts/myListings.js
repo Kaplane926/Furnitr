@@ -26,11 +26,11 @@ function renderListings(){
       `
       html += `<td class="item-${row.status} ${itemClass}">${row.status}</td>
       `
-      html += `<td><button id='${id}' class="remove" data-id="${row.id}">Remove</button></td>`
+      html += `<td class="${itemClass}"><button id="${id}" class="remove" data-id="${row.id}">Remove</button></td>`
 
-      html += `<td>${soldBtn}</td>
+      html += `<td class="${itemClass}">${soldBtn}</td>
      `
-      html += `<td>
+      html += `<td class="${itemClass}">
       <form method="GET" action="/messages/${row.id}"><button type="delete"
           class="msg">Messages</button></form></td>
       </tr>`
