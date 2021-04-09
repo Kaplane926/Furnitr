@@ -9,9 +9,13 @@ module.exports = (db) => {
 
   router.post("/items", (req, res) => {
     console.log('afbsjd');
+    const userID = req.session['user_id']
     //const values = [1, 1]
     db.query(`
-    SELECT * FROM items;
+    SELECT * FROM items
+    JOIN users ON users.id = seller_id
+    WHERE seller_id = ${userID}
+    ;
     `
     )
       .then(data => {

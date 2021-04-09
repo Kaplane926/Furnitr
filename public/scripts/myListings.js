@@ -4,6 +4,10 @@ function renderListings(){
   .then(function(data){
     let html = ""
     let id = 1
+    //const userID = req.session['user_id']
+    //console.log("UserID:", userID)
+    console.log("data: ", data)
+
     for(row of data.rows){
       let itemClass = '';
       let soldBtn = '';
@@ -33,7 +37,7 @@ function renderListings(){
       </tr>`
 
     id ++
-      }
+
     }
 
     $('#seller-list').html(html)
