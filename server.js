@@ -203,6 +203,10 @@ app.get('/login/:id', (req, res) => {
   res.redirect('/furnitr');
 });
 
+app.get("/error", (req, res) =>{
+res.render("error")
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
