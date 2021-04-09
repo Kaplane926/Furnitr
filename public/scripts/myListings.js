@@ -4,7 +4,7 @@ function renderFavourites(){
     let html = ""
     let id = 1
     for(row of data.rows){
-      if(row.seller_id === 2){
+      if(row.seller_id === 1){
       html += `<tr>
       `
       html += `<td class="item-img"><img src="${row.image_url}"></td>
@@ -13,11 +13,13 @@ function renderFavourites(){
       `
       html += `<td class="item-desc">${row.description}</td>
       `
-      html += `<td><button class="remove" data-id = "${row.id}">Remove</button></td>`
+      html += `<td><button  id = '${id}' class="remove" data-id = "${row.id}">Remove</button></td>`
 
       html += `<td><button class="sold" data-id = "${row.id}">Sold</button></td>
      `
-      html += `<td><button class="msg" data-id = "${row.id}">Messages</button></td>
+      html += `<td>
+      <form method="GET" action="/messages/${row.id}"><button type="delete"
+          class="msg">Messages</button></form></td>
       </tr>`
 
     id ++
@@ -27,7 +29,17 @@ function renderFavourites(){
     $('#seller-list').html(html)
   })
   .then(function(){
-    $('.dislike').click(function(){
+    $('.remove').click(function(){
+      const buttonId = $(this).attr('id')
+      const itemId = $(`#${buttonId}`).data('id')
+      alert(buttonId)
+      $.ajax(`/api/removeItem/${itemId}`, { method: 'POST' })
+      .then(function(){
+        renderFavourites()
+      })
+
+    })
+    $('.sold').click(function(){
       const buttonId = $(this).attr('id')
       const itemId = $(`#${buttonId}`).data('id')
       alert(buttonId)

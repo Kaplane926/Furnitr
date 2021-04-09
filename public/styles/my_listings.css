@@ -46,3 +46,15 @@ td {
   padding: 10px;
   background-color: white;
 }
+
+.add {
+  margin: 20px;
+  color: #c8c8c8;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: 2px solid white;
+  background-color: white;
+  font-size: 40px;
+  filter: drop-shadow(0 0 5px #adadad);
+}
