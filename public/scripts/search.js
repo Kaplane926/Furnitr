@@ -20,7 +20,7 @@ function displayPriceRangeBoxes() {
       }
 
         if (item !== null) {
-        
+
           $('#content').data('item_id', item.id)
           $('.item-title').html(`${item.title} <b> $${item.price} </b>`)
           $('.item-desc').html(`${item.description}`)
@@ -34,29 +34,29 @@ function displayPriceRangeBoxes() {
           $('.like').hide()
           $('.dislike').hide()
       }
-    }
+    })
   };
 
-$(document).ready(function(){ 
+$(document).ready(function(){
       displayPriceRangeBoxes()
       $('.like').click(function(){
         console.log("clicked")
         const itemID = $('#content').data('item_id')
         $.ajax(`/api/furnitrFavourite/${itemID}`, { method: 'POST' })
         .then(function(data){
-    
+
           console.log("favourites called! ", data)
           displayPriceRangeBoxes()
         })
         .catch(console.log);
       })
-    
+
       $('.dislike').click(function(){
-    
+
         const itemID = $('#content').data('item_id')
         $.ajax(`/api/furnitrDislike/${itemID}`, { method: 'POST' })
         .then(function(data){
-    
+
           console.log("dislikes called! ", data)
           displayPriceRangeBoxes()
         })
