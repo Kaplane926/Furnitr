@@ -4,8 +4,8 @@ const router = express.Router();
 module.exports = (db) => {
 
   router.post("/:id", (req, res) => {
-    const userID = req.params.id;
-    console.log(userID);
+    const itemId = req.params.id;
+    const userId = req.session['user_id'];
     const sql = `
     SELECT m.msg_id, m.message, m.msg_created,
       CASE
@@ -15,13 +15,11 @@ module.exports = (db) => {
     FROM users u
     LEFT JOIN messages m ON m.recipient_id = u.id OR m.sender_id = u.id
     LEFT JOIN users s ON m.sender_id = s.id
-    WHERE u.id = $1
+    WHERE u.id = $1 AND m.item_id = $2
     `;
 
-    db.query(sql, [userID])
+    db.query(sql, [userId, itemId])
       .then(data => {
-        console.log('then');
-        console.log(data);
         res.send(data);
       })
       .catch(err => {

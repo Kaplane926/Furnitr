@@ -19,6 +19,7 @@ function renderFavourites(){
       html += `<button id = '${id}' class="dislike" data-id = "${row.id}">
       <i class="fa fa-times" aria-hidden="true"></i>
       </button>
+      <a class="nav-item nav-link" href="/messages/${row.id}">Message Seller</a>
       </div>`
 
     id ++

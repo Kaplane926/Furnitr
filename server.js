@@ -9,6 +9,7 @@ const bodyParser = require("body-parser");
 const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
+const cookieSession = require('cookie-session');
 
 // PG database client/connection setup
 const { Pool } = require('pg');
@@ -31,6 +32,11 @@ app.use("/styles", sass({
 }));
 app.use(express.static("public"));
 
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1', 'key2']
+}));
+
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
@@ -46,6 +52,7 @@ const createNewListingRoutes = require("./routes/createNewListing");
 const sendMessageRoutes = require("./routes/sendMessage");
 const itemsRoutes = require("./routes/items");
 const searchRoutes = require("./routes/search_results");
+const removeItemRoutes = require("./routes/removeItem");
 
 
 
@@ -64,6 +71,8 @@ app.use("/api/createNewListing", createNewListingRoutes(db));
 app.use("/api/sendMessage", sendMessageRoutes(db));
 app.use("/api/items", itemsRoutes(db));
 app.use("/api/search_results", searchRoutes(db));
+app.use("/api/removeItem", removeItemRoutes(db));
+
 
 // Note: mount other resources here, using the same pattern above
 
@@ -175,8 +184,9 @@ app.get("/furniture", (req, res) => {
 
 // messages
 
-app.get("/messages", (req, res) => {
-  res.render("messages");
+app.get("/messages/:id", (req, res) => {
+  const id = req.params.id;
+  res.render(`messages`);
 });
 
 
@@ -192,7 +202,7 @@ app.get("/search_results", (req, res) => {
 
 app.get('/login/:id', (req, res) => {
   req.session.user_id = req.params.id;
-  res.redirect('/');
+  res.redirect('/furnitr');
 });
 
 app.listen(PORT, () => {

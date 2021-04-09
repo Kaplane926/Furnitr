@@ -12,7 +12,7 @@
   float: right;
   height: auto;
   width: 100%;
-  min-width: calc(100% - 300px);
+  /* min-width: calc(100% - 300px); */
   background-color: rgb(245, 245, 245);
 }
 

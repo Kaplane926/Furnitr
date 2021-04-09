@@ -24,11 +24,17 @@
     color: red;
     font-size: 18px;
   }
+
+  .msg {
+    color: blue;
+    font-size: 18px;
+  }
 }
 
 table {
   border-collapse: collapse;
   width: 100%;
+  filter: drop-shadow(0 0 0 5px #adadad);
 }
 
 tr {
@@ -39,4 +45,16 @@ tr {
 td {
   padding: 10px;
   background-color: white;
+}
+
+.add {
+  margin: 20px;
+  color: rgb(200, 200, 200);
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: 2px solid white;
+  background-color: white;
+  font-size: 40px;
+  filter: drop-shadow(0 0 5px #adadad);
 }

@@ -12,12 +12,13 @@ module.exports = (db) => {
 
   router.post("/:id", (req, res) => {
     console.log(req.params.id)
+    const userID = req.session['user_id']
     db.query(
         `
         INSERT INTO favourites (user_id, item_id, is_fav)
-        VALUES (1, ${req.params.id}, TRUE)
+        VALUES ($1, ${req.params.id}, TRUE)
         ;
-      `
+      `, [userID]
     )
     .then(()=> res.sendStatus(200))
     .catch(function(err){

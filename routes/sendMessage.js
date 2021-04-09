@@ -10,17 +10,20 @@ const router  = express.Router();
 
 module.exports = (db) => {
 
-  router.post("/:msg", (req, res) => {
-    console.log(req.params.msg)
-    const value = [req.params.msg]
-    console.log('the route is wokring!')
-    /*db.query(`
-    INSERT INTO messages
-    `
-    )
+  router.post("/:id", (req, res) => {
+    const itemId = req.params.id;
+    const userId = req.session['user_id'];
+    const msg = req.body.data;
+    const sql = `
+    INSERT INTO messages (recipient_id, sender_id, item_id, message, msg_created)
+    SELECT i.seller_id, u.id, i.id, $1, CURRENT_DATE
+    FROM items i
+    INNER JOIN users u ON u.id = $2
+    WHERE i.id = $3;
+    `;
+
+    db.query(sql, [msg, userId, itemId])
       .then(data => {
-        //const users = data.rows;
-        //res.json({ users });
         res.send(data)
       })
       .catch(err => {
@@ -29,8 +32,7 @@ module.exports = (db) => {
           .status(500)
           .json({ error: err.message });
       });
-*/
+
   });
   return router;
 };
-

@@ -1,40 +1,52 @@
-function renderFavourites(){
+function renderListings(){
+
   $.ajax('/api/items/items', { method: 'POST' })
   .then(function(data){
     let html = ""
     let id = 1
-    console.log(data.rows)
     for(row of data.rows){
       if(row.seller_id === 1){
-      html += `
-      <div class="page-title">My items</div>
-      <div class="item-card">
-        <div class="liked-items">
-        `
-      html += `<img src="${row.image_url}">
+      html += `<tr>
       `
-      html += `<p class="item-title">${row.title}</p>
+      html += `<td class="item-img"><img src="${row.image_url}"></td>
       `
-      html += `<p class="item-desc">${row.description}</p>
+      html += `<td class="item-title">${row.title}</td>
       `
-      html += `<button id = '${id}' class="dislike" data-id = "${row.id}">
-      <i class="fa fa-times" aria-hidden="true"></i>
-      </button>
-      </div>`
+      html += `<td class="item-desc">${row.description}</td>
+      `
+      html += `<td><button  id = '${id}' class="remove" data-id = "${row.id}">Remove</button></td>`
+
+      html += `<td><button class="sold" data-id = "${row.id}">Sold</button></td>
+     `
+      html += `<td>
+      <form method="GET" action="/messages/${row.id}"><button type="delete"
+          class="msg">Messages</button></form></td>
+      </tr>`
 
     id ++
       }
     }
-    console.log(html)
-    $('.content').html(html)
+
+    $('#seller-list').html(html)
   })
   .then(function(){
-    $('.dislike').click(function(){
+    $('.remove').click(function(){
       const buttonId = $(this).attr('id')
       const itemId = $(`#${buttonId}`).data('id')
-      $.ajax(`/api/unfavourite/${itemId}`, { method: 'POST' })
+      alert(buttonId)
+      $.ajax(`/api/removeItem/${itemId}`, { method: 'POST' })
       .then(function(){
         renderFavourites()
+      })
+
+    })
+    $('.sold').click(function(){
+      const buttonId = $(this).attr('id')
+      const itemId = $(`#${buttonId}`).data('id')
+      alert(buttonId)
+      $.ajax(`/api/removeItem/${itemId}`, { method: 'POST' })
+      .then(function(){
+        renderListings()
       })
 
     })
@@ -44,6 +56,6 @@ function renderFavourites(){
 
 $(document).ready(function(){
 
-  renderFavourites()
+  renderListings()
 
 })

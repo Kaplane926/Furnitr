@@ -12,13 +12,14 @@ module.exports = (db) => {
 
   router.get("/", (req, res) => {
     //const values = [1, 1]
+    const userID = req.session['user_id']
     db.query(`
     SELECT * FROM items i
     LEFT JOIN favourites f
     ON i.id = f.item_id
-    AND f.user_id = 1
+    AND f.user_id = $1
     WHERE f.fav_id IS NULL;
-    `
+    `, [userID]
     )
       .then(data => {
         //const users = data.rows;
