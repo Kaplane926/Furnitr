@@ -8,8 +8,9 @@ const router  = express.Router();
 module.exports = (db) => {
 
   router.post("/items", (req, res) => {
-    console.log('afbsjd');
+
     const userID = req.session['user_id']
+    console.log(userID);
     //const values = [1, 1]
     db.query(`
     SELECT * FROM items
