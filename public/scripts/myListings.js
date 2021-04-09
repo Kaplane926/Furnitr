@@ -15,7 +15,7 @@ function renderListings(){
       } else {
         soldBtn = `<button id='s${id}' class="sold" data-id="${row.id}">Sold</button>`;
       }
-      if (row.seller_id === 1) {
+
       html += `<tr>
       `
       html += `<td class="item-img ${itemClass}"><img src="${row.image_url}"></td>
