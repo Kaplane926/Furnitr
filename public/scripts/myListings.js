@@ -6,7 +6,6 @@ function renderListings(){
     let id = 1
     //const userID = req.session['user_id']
     //console.log("UserID:", userID)
-    console.log("data: ", data)
 
     for(row of data.rows){
       let itemClass = '';
@@ -16,7 +15,7 @@ function renderListings(){
       } else {
         soldBtn = `<button id='s${id}' class="sold" data-id="${row.id}">Sold</button>`;
       }
-      if (row.seller_id === 1) {
+
       html += `<tr>
       `
       html += `<td class="item-img ${itemClass}"><img src="${row.image_url}"></td>
@@ -37,7 +36,9 @@ function renderListings(){
       </tr>`
 
     id ++
-
+      console.log(id)
+      console.log(row)
+      console.log("itemID", row.id)
     }
 
     $('#seller-list').html(html)
@@ -46,10 +47,11 @@ function renderListings(){
     $('.remove').click(function(){
       const buttonId = $(this).attr('id');
       const itemId = $(`#${buttonId}`).data('id');
-      alert(buttonId)
+      console.log("buttonID: ", buttonId)
+      console.log("itemID: ", itemId)
       $.ajax(`/api/removeItem/${itemId}`, { method: 'POST' })
       .then(function(){
-        renderFavourites()
+        renderListings()
       })
 
     })
