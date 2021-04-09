@@ -5,7 +5,7 @@ CREATE TABLE items (
   title VARCHAR(255),
   price DECIMAL(10,2),
   description TEXT,
-  image_url VARCHAR(255),
+  image_url VARCHAR(255) NOT NULL,
   date_posted DATE,
   country VARCHAR(255),
   street VARCHAR(255),

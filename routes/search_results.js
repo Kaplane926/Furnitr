@@ -1,6 +1,6 @@
 "use strict";
 
-const searchHelper    = require(".public/scripts/search")
+// const searchHelper    = require(".public/scripts/search")
 
 const express       = require('express');
 const searchRoutes  = express.Router();
