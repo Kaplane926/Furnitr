@@ -17,7 +17,7 @@
 }
 
 #seller-list .item-desc {
-  font-size: 16px;
+  font-size: 18px;
   color: darkgray;
 }
 
@@ -61,6 +61,7 @@ table {
 tr {
   border: 1px solid darkgray;
   border-radius: 10px;
+  background-color: white;
 }
 
 td {
