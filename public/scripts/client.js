@@ -14,7 +14,7 @@
 
 
 function fetchItem(){
-  $.ajax('/api/furnitr', { method: 'POST' })
+  $.ajax('/api/furnitr', { method: 'GET' })
   .then(function(data){
     const item = data.rows[0]
     if(item !== undefined){

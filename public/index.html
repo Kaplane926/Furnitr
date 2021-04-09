@@ -28,11 +28,6 @@
 </head>
 
 <body>
-  <!-- Top search bar -->
-  <div class="search-form">
-    <textarea id="search-text" name="search" placeholder="What are you looking for?"></textarea>
-    <button id="post-search" type="submit">SUBMIT</button>
-  </div>
   <!-- Left nav bar (fixed) -->
   <div class="page-layout">
     <div class="sidebar">
@@ -48,6 +43,21 @@
           <a class="nav-item nav-link" href="/my_listings">My Listings</a>
           <a class="nav-item nav-link" href="/favourites">Favourites</a>
           <a class="nav-item nav-link" href="/messages">Messages</a>
+        </div>
+        <div>Search Filters</div>
+        <div id="filter-input-wrapper">
+          <div class="input-block">
+                <input value="price" type="checkbox" id="under-100" class="filter-input" name="filter" />
+                <label for="price" class="filter-label info-mild">Under $100</label>
+          </div>
+          <div class="input-block">
+                <input value="price" type="checkbox" id="100-500" class="filter-input" name="filter" />
+                <label for="price" class="filter-label info-mild">$100-500</label>
+          </div>
+          <div class="input-block">
+                <input value="price" type="checkbox" id="over-500" class="filter-input" name="filter" />
+                <label for="price" class="filter-label info-med">Over $500</label>
+          </div>
         </div>
         <div class="link-content">
           <header class="hdr">Start Favouriting!</header>
