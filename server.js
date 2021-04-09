@@ -52,6 +52,7 @@ const createNewListingRoutes = require("./routes/createNewListing");
 const sendMessageRoutes = require("./routes/sendMessage");
 const itemsRoutes = require("./routes/items");
 const removeItemRoutes = require("./routes/removeItem");
+const soldItemRoutes = require("./routes/soldItem");
 
 
 
@@ -70,7 +71,7 @@ app.use("/api/createNewListing", createNewListingRoutes(db));
 app.use("/api/sendMessage", sendMessageRoutes(db));
 app.use("/api/items", itemsRoutes(db));
 app.use("/api/removeItem", removeItemRoutes(db));
-
+app.use("/api/soldItem", soldItemRoutes(db));
 
 // Note: mount other resources here, using the same pattern above
 

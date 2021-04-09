@@ -29,6 +29,18 @@
     color: blue;
     font-size: 18px;
   }
+
+  .item-Available {
+    color: green;
+  }
+
+  .item-Sold {
+    color: red;
+  }
+}
+
+.grayout {
+  opacity: 0.4;
 }
 
 table {
