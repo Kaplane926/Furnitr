@@ -10,7 +10,7 @@ module.exports = (db) => {
     console.log(userID);
 
     db.query(
-        `
+      `
         UPDATE items
         SET status = 'Sold'
         WHERE seller_id = $1
@@ -18,11 +18,11 @@ module.exports = (db) => {
 
       `, [userID]
     )
-    .then(()=> res.sendStatus(200))
-    .catch(function(err){
-      console.log(err)
-      res.sendStatus(400)
-    })
+      .then(()=> res.sendStatus(200))
+      .catch(function(err) {
+        console.log(err);
+        res.sendStatus(400);
+      });
   });
 
 

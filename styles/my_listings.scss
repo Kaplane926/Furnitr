@@ -8,6 +8,13 @@
     }
   }
 
+  .item-img2 {
+    img {
+      height: 100px;
+      width: 100px;
+    }
+  }
+
   .item-title {
     font-size: 24px;
   }
@@ -21,21 +28,26 @@
     font-size: 18px;
   }
   .remove {
-    color: red;
     font-size: 18px;
+    color: rgba(235, 31, 31, 1);
+    // background-color: rgba(240, 240, 240, 1);
   }
 
   .msg {
-    color: blue;
     font-size: 18px;
+    color: rgba(30, 51, 236, 1);
   }
 
   .item-Available {
     color: green;
+    font-size: 24px;
+    font-weight: bold;
   }
 
   .item-Sold {
     color: red;
+    font-size: 24px;
+    font-weight: bold;
   }
 }
 

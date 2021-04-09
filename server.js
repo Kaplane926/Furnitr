@@ -138,7 +138,7 @@ app.get('/login/:id', (req, res) => {
 });
 
 app.get("/error", (req, res) =>{
-res.render("error")
+  res.render("error");
 });
 
 app.listen(PORT, () => {

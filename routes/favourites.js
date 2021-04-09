@@ -11,7 +11,7 @@ const router  = express.Router();
 module.exports = (db) => {
 
   router.post("/", (req, res) => {
-    const userID = req.session['user_id']
+    const userID = req.session['user_id'];
     db.query(`
     SELECT * FROM favourites
     JOIN items ON items.id = item_id
@@ -20,10 +20,10 @@ module.exports = (db) => {
     `, [userID]
     )
       .then(data => {
-        res.send(data)
+        res.send(data);
       })
       .catch(err => {
-        console.log(err)
+        console.log(err);
         res
           .status(500)
           .json({ error: err.message });

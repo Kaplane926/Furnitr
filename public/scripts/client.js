@@ -13,52 +13,48 @@
 //}
 
 
-function fetchItem(){
+function fetchItem() {
   $.ajax('/api/furnitr', { method: 'GET' })
-  .then(function(data){
-    const item = data.rows[0]
-    if(item !== undefined){
-    $('#content').data('item_id', item.id)
-    $('.item-title').html(`${item.title} <b> $${item.price} </b>`)
-    $('.item-desc').html(`${item.description}`)
-    $('.items').html(`<img src ="${item.image_url}"></img>`)
-    }
-    else{
-      $('.item-title').html(` <b> </b>`)
-      $('.item-desc').html(`Uh oh! You've searched through all the available listings`)
-      $('.items').html(`<img src ="/images/uh-oh.png"></img>`)
-      $('.like').hide()
-      $('.dislike').hide()
-    }
+    .then(function(data) {
+      const item = data.rows[0];
+      if (item !== undefined) {
+        $('#content').data('item_id', item.id);
+        $('.item-title').html(`${item.title} <b> $${item.price} </b>`);
+        $('.item-desc').html(`${item.description}`);
+        $('.items').html(`<img src ="${item.image_url}"></img>`);
+      } else {
+        $('.item-title').html(` <b> </b>`);
+        $('.item-desc').html(`Uh oh! You've searched through all the available listings`);
+        $('.items').html(`<img src ="/images/uh-oh.png"></img>`);
+        $('.like').hide();
+        $('.dislike').hide();
+      }
 
-  })
-};
+    });
+}
 
-$(document).ready(function(){
-  fetchItem()
-  $('.like').click(function(){
-    console.log("clicked")
-    const itemID = $('#content').data('item_id')
+$(document).ready(function() {
+  fetchItem();
+  $('.like').click(function() {
+    const itemID = $('#content').data('item_id');
     $.ajax(`/api/furnitrFavourite/${itemID}`, { method: 'POST' })
-    .then(function(data){
+      .then(function(data) {
 
-      console.log("favourites called! ", data)
-      fetchItem()
-    })
-    .catch(console.log);
-  })
+        console.log("favourites called! ", data);
+        fetchItem();
+      })
+      .catch(console.log);
+  });
 
-  $('.dislike').click(function(){
+  $('.dislike').click(function() {
 
-    const itemID = $('#content').data('item_id')
+    const itemID = $('#content').data('item_id');
     $.ajax(`/api/furnitrDislike/${itemID}`, { method: 'POST' })
-    .then(function(data){
-
-      console.log("dislikes called! ", data)
-      fetchItem()
-    })
-    .catch(console.log);
-  })
-})
+      .then(function(data) {
+        fetchItem();
+      })
+      .catch(console.log);
+  });
+});
 
 

@@ -11,10 +11,10 @@ module.exports = (db) => {
     `
     )
       .then(data => {
-        res.send(data)
+        res.send(data);
       })
       .catch(err => {
-        console.log(err)
+        console.log(err);
         res
           .status(500)
           .json({ error: err.message });
