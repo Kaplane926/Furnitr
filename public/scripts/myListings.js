@@ -4,8 +4,14 @@ function renderListings(){
   .then(function(data){
     let html = ""
     let id = 1
+    //const userID = req.session['user_id']
+    //console.log("UserID:", userID)
+    console.log("data: ", data)
+
     for(row of data.rows){
-      if(row.seller_id === 1){
+      //console.log("seller_ID: ", row.seller_id)
+
+
       html += `<tr>
       `
       html += `<td class="item-img"><img src="${row.image_url}"></td>
@@ -24,7 +30,7 @@ function renderListings(){
       </tr>`
 
     id ++
-      }
+
     }
 
     $('#seller-list').html(html)
