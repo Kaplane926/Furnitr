@@ -32,3 +32,9 @@ Furnitr is an app for buying and selling furniture. This love child of tindr and
 - moment
 - morgan
 - node-sass-middleware
+
+## Screenshots
+
+!["Furnitr Main Page"](https://github.com/Kaplane926/Furnitr/blob/master/docs/furnitr-main-page.png?raw=true)
+!["Furnitr Messages"](https://github.com/Kaplane926/Furnitr/blob/master/docs/furnitr-messages.png?raw=true)
+!["Create New Listing"](https://github.com/Kaplane926/Furnitr/blob/master/docs/furnitr-new-listing.png?raw=true)
