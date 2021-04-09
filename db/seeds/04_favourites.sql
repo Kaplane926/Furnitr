@@ -1,3 +1,3 @@
 INSERT INTO favourites (user_id, item_id)
-VALUES (2, 3),
+VALUES (1, 1),
 (8, 5);
