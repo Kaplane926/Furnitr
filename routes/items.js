@@ -12,10 +12,11 @@ module.exports = (db) => {
     const userID = req.session['user_id']
     //const values = [1, 1]
     db.query(`
-    SELECT * FROM items
+    SELECT items.* FROM items
     JOIN users ON users.id = seller_id
     WHERE seller_id = ${userID}
     ;
+
     `
     )
       .then(data => {

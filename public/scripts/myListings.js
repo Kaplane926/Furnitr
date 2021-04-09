@@ -36,7 +36,9 @@ function renderListings(){
       </tr>`
 
     id ++
-
+      console.log(id)
+      console.log(row)
+      console.log("itemID", row.id)
     }
 
     $('#seller-list').html(html)
@@ -45,7 +47,8 @@ function renderListings(){
     $('.remove').click(function(){
       const buttonId = $(this).attr('id');
       const itemId = $(`#${buttonId}`).data('id');
-      alert(buttonId)
+      console.log("buttonID: ", buttonId)
+      console.log("itemID: ", itemId)
       $.ajax(`/api/removeItem/${itemId}`, { method: 'POST' })
       .then(function(){
         renderListings()
