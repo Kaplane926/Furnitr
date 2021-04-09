@@ -8,7 +8,7 @@
 const express = require('express');
 const router  = express.Router();
 
-module.exports = (db) => {
+/*module.exports = (db) => {
   router.get("/", (req, res) => {
     let query = `SELECT * FROM widgets`;
     console.log(query);
@@ -25,3 +25,4 @@ module.exports = (db) => {
   });
   return router;
 };
+*/

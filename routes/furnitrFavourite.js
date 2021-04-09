@@ -11,7 +11,6 @@ const router  = express.Router();
 module.exports = (db) => {
 
   router.post("/:id", (req, res) => {
-    console.log(req.params.id)
     const userID = req.session['user_id']
     db.query(
         `

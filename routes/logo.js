@@ -8,7 +8,6 @@ const router  = express.Router();
 module.exports = (db) => {
 
   router.get("/", (req, res) => {
-    console.log("did it work?")
     res.redirect('/furnitr')
 
   });

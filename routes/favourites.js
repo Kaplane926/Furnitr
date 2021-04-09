@@ -11,7 +11,6 @@ const router  = express.Router();
 module.exports = (db) => {
 
   router.post("/", (req, res) => {
-    //const values = [1, 1]
     const userID = req.session['user_id']
     db.query(`
     SELECT * FROM favourites
@@ -21,8 +20,6 @@ module.exports = (db) => {
     `, [userID]
     )
       .then(data => {
-        //const users = data.rows;
-        //res.json({ users });
         res.send(data)
       })
       .catch(err => {

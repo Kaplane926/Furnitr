@@ -4,10 +4,7 @@ const router  = express.Router();
 module.exports = (db) => {
 
   router.post("/", (req, res) => {
-    //console.log('afbsjd');
-
     const values = [req.session['user_id'], req.body.title, req.body.price, req.body.description, req.body.photos, req.body.country, req.body.street, req.body.city, req.body.province, req.body.post_code]
-    //const date = moment().format('l');
     if(req.body.photos){
    db.query(`
     INSERT INTO items (seller_id, title, price, description, image_url, date_posted, country, street, city, province, postal_code, status)
@@ -15,8 +12,6 @@ module.exports = (db) => {
     `, values
     )
       .then(data => {
-        //const users = data.rows;
-        //res.json({ users });
         console.log(data)
         res.redirect('/my_listings')
       })

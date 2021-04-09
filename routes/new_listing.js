@@ -9,8 +9,6 @@ const router  = express.Router();
 module.exports = (db) => {
 
   router.post("/items", (req, res) => {
-    console.log('afbsjd');
-    //const values = [1, 1]
     db.query(`
     SELECT * FROM items;
     `
