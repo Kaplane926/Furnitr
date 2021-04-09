@@ -3,24 +3,41 @@ function displayPriceRangeBoxes() {
     .then(function(data){
       const items = data.rows;
       const sortedItems = items.sort((firstItem, secondItem) => firstItem.price - secondItem.price);
-      if (items !== undefined) {
-        $('#content').data('item_id', item.id)
-        $('.item-title').html(`${item.title} <b> $${item.price} </b>`)
-        $('.item-desc').html(`${item.description}`)
-        $('.items').html(`<img src ="${item.image_url}"></img>`)
-      }
-      else {
-        $('.item-title').html(` <b> </b>`)
-        $('.item-desc').html(`Uh oh! You've searched through all the available listings`)
-        $('.items').html(`<img src ="/images/uh-oh.png"></img>`)
-        $('.like').hide()
-        $('.dislike').hide()
-      }
-    }) 
-} 
+      const colonChecker = $(input[type="checkbox"]).find(":checked");
 
+      let item = null;
 
-$(document).ready(function(){
+      if (colonChecker.id === "under-100") {
+        sortedItems.filter(x => x.price > 0 && x.price < 100)
+      }
+
+      if (colonChecker.id === "100-500") {
+        sortedItems.filter(x => x.price >= 100 && x.price <= 500)
+      }
+
+      if (colonChecker.id === "over-500") {
+        sortedItems.filter(x => x.price > 500)
+      }
+
+        if (item !== null) {
+        
+          $('#content').data('item_id', item.id)
+          $('.item-title').html(`${item.title} <b> $${item.price} </b>`)
+          $('.item-desc').html(`${item.description}`)
+          $('.price').html(`${item.price}`)
+          $('.items').html(`<img src ="${item.image_url}"></img>`)
+        }
+        else {
+          $('.item-title').html(` <b> </b>`)
+          $('.item-desc').html(`Uh oh! You've searched through all the available listings`)
+          $('.items').html(`<img src ="/images/uh-oh.png"></img>`)
+          $('.like').hide()
+          $('.dislike').hide()
+      }
+    }
+  };
+
+$(document).ready(function(){ 
       displayPriceRangeBoxes()
       $('.like').click(function(){
         console.log("clicked")

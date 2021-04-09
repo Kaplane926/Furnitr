@@ -8,11 +8,7 @@ const router  = express.Router();
 module.exports = (db) => {
 
   router.post("/items", (req, res) => {
-<<<<<<< HEAD
-
-=======
     //console.log('afbsjd');
->>>>>>> 24c8871bf075ec878b2e8e2549930c40a43745a9
     const userID = req.session['user_id']
     console.log(userID);
     //const values = [1, 1]
