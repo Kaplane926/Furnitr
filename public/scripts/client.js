@@ -13,13 +13,13 @@
 //}
 
 
-function fetchItem(){
+function fetchItem() {
   $.ajax('/api/furnitr', { method: 'GET' })
   .then(function(data){
     const item = data.rows[0]
     if(item !== undefined){
     $('#content').data('item_id', item.id)
-    $('.item-title').html(`${item.title} <b> $${item.price} </b>`)
+    $('.item-title').html(`${item.title} <span class="price"> $${item.price} </span>`)
     $('.item-desc').html(`${item.description}`)
     $('.items').html(`<img src ="${item.image_url}"></img>`)
     }
@@ -40,25 +40,23 @@ $(document).ready(function(){
     console.log("clicked")
     const itemID = $('#content').data('item_id')
     $.ajax(`/api/furnitrFavourite/${itemID}`, { method: 'POST' })
-    .then(function(data){
+      .then(function(data) {
 
-      console.log("favourites called! ", data)
-      fetchItem()
-    })
-    .catch(console.log);
-  })
+        console.log("favourites called! ", data);
+        fetchItem();
+      })
+      .catch(console.log);
+  });
 
-  $('.dislike').click(function(){
+  $('.dislike').click(function() {
 
-    const itemID = $('#content').data('item_id')
+    const itemID = $('#content').data('item_id');
     $.ajax(`/api/furnitrDislike/${itemID}`, { method: 'POST' })
-    .then(function(data){
-
-      console.log("dislikes called! ", data)
-      fetchItem()
-    })
-    .catch(console.log);
-  })
-})
+      .then(function(data) {
+        fetchItem();
+      })
+      .catch(console.log);
+  });
+});
 
 

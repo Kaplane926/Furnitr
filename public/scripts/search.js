@@ -1,6 +1,6 @@
 function displayPriceRangeBoxes() {
   $.ajax('/api/furnitr', { method: 'GET' })
-    .then(function(data){
+    .then(function(data) {
       const items = data.rows;
       const sortedItems = items.sort((firstItem, secondItem) => firstItem.price - secondItem.price);
       const colonChecker = $(input[type="checkbox"]).find(":checked");
@@ -63,3 +63,26 @@ $(document).ready(function(){
         .catch(console.log);
       })
     })
+      console.log(sortedItems);
+    });
+}
+
+function fetchItem() {
+  $.ajax('/api/furnitr', { method: 'GET' })
+    .then(function(data) {
+      const item = data.rows[0];
+      if (item !== undefined) {
+        $('#content').data('item_id', item.id);
+        $('.item-title').html(`${item.title} <b> $${item.price} </b>`);
+        $('.item-desc').html(`${item.description}`);
+        $('.items').html(`<img src ="${item.image_url}"></img>`);
+      } else {
+        $('.item-title').html(` <b> </b>`);
+        $('.item-desc').html(`Uh oh! You've searched through all the available listings`);
+        $('.items').html(`<img src ="/images/uh-oh.png"></img>`);
+        $('.like').hide();
+        $('.dislike').hide();
+      }
+
+    });
+}

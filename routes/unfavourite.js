@@ -11,10 +11,10 @@ const router  = express.Router();
 module.exports = (db) => {
 
   router.post("/:id", (req, res) => {
-    console.log(req.params.id)
-    const userID = req.session['user_id']
+    console.log(req.params.id);
+    const userID = req.session['user_id'];
     db.query(
-        `
+      `
         UPDATE favourites
         SET is_fav = FALSE
         WHERE user_id = $1
@@ -22,11 +22,11 @@ module.exports = (db) => {
 
       `, [userID]
     )
-    .then(()=> res.sendStatus(200))
-    .catch(function(err){
-      console.log(err)
-      res.sendStatus(400)
-    })
+      .then(()=> res.sendStatus(200))
+      .catch(function(err) {
+        console.log(err);
+        res.sendStatus(400);
+      });
   });
 
 

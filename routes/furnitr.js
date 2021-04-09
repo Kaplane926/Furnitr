@@ -11,8 +11,7 @@ const router  = express.Router();
 module.exports = (db) => {
 
   router.get("/", (req, res) => {
-    //const values = [1, 1]
-    const userID = req.session['user_id']
+    const userID = req.session['user_id'];
     db.query(`
     SELECT * FROM items i
     LEFT JOIN favourites f
@@ -22,12 +21,10 @@ module.exports = (db) => {
     `, [userID]
     )
       .then(data => {
-        //const users = data.rows;
-        //res.json({ users });
-        res.send(data)
+        res.send(data);
       })
       .catch(err => {
-        console.log(err)
+        console.log(err);
         res
           .status(500)
           .json({ error: err.message });
@@ -36,11 +33,3 @@ module.exports = (db) => {
   });
   return router;
 };
-
-const likeItem = function(){
-  const values = []
-  const queryString = `
-  INSERT INTO favourites (user_id, item_id)
-  VALUES ($1, $2);
-  `
-}

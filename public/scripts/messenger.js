@@ -1,17 +1,17 @@
 // var moment = require('moment');
 // import { formatDistanceToNow } from 'date-fns';
 
-const escape = function (str) {
+const escape = function(str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
-}
+};
 
-const loadChat = function () {
+const loadChat = function() {
   const url = $(location).attr('href');
   const itemId = url.substring(url.lastIndexOf('/') + 1);
   $.ajax(`/api/messages/${itemId}`, { method: 'POST' })
-    .then(function (data) {
+    .then(function(data) {
       const msgs = data.rows;
       $("#chat-messages").html('');
       renderChats(msgs);
@@ -20,18 +20,18 @@ const loadChat = function () {
     .catch(err => {
       console.log('ajax error caught');
       console.log(err);
-    })
+    });
 };
 
-const renderChats = function (chats) {
+const renderChats = function(chats) {
   for (const chat of chats) {
     const $chat = createChatElement(chat);
     $("#chat-messages").append($chat);
   }
-}
-const createChatElement = function (chat) {
+};
+const createChatElement = function(chat) {
 
-console.log("chat.msg_crated: ", chat.msg_created);
+  console.log("chat.msg_crated: ", chat.msg_created);
 
   if (chat.msg_class === 'contact') {
     console.log(chat);
@@ -55,15 +55,15 @@ console.log("chat.msg_crated: ", chat.msg_created);
   </div>`;
     return $me;
   }
-}
+};
 
-$(document).ready(function () {
-console.log("chats");
+$(document).ready(function() {
+  console.log("chats");
   loadChat();
 
   // ajax post request
 
-  $(".send").click(function (event) {
+  $(".send").click(function(event) {
     event.preventDefault();
     const msg = $('#message-text').val().trim();
     console.log(msg);
