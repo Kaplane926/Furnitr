@@ -31,6 +31,18 @@
   font-size: 18px;
 }
 
+#seller-list .item-Available {
+  color: green;
+}
+
+#seller-list .item-Sold {
+  color: red;
+}
+
+.grayout {
+  opacity: 0.4;
+}
+
 table {
   border-collapse: collapse;
   width: 100%;
