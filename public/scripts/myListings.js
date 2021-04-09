@@ -6,7 +6,6 @@ function renderListings(){
     let id = 1
     //const userID = req.session['user_id']
     //console.log("UserID:", userID)
-    console.log("data: ", data)
 
     for(row of data.rows){
       //console.log("seller_ID: ", row.seller_id)
@@ -42,7 +41,7 @@ function renderListings(){
       alert(buttonId)
       $.ajax(`/api/removeItem/${itemId}`, { method: 'POST' })
       .then(function(){
-        renderFavourites()
+        renderListings()
       })
 
     })

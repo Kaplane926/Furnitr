@@ -8,7 +8,7 @@ const router  = express.Router();
 module.exports = (db) => {
 
   router.post("/items", (req, res) => {
-    console.log('afbsjd');
+    //console.log('afbsjd');
     const userID = req.session['user_id']
     //const values = [1, 1]
     db.query(`
@@ -21,7 +21,7 @@ module.exports = (db) => {
       .then(data => {
         //const users = data.rows;
         //res.json({ users });
-        console.log(data)
+        //console.log(data)
         res.send(data)
       })
       .catch(err => {
