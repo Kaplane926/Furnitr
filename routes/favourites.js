@@ -12,12 +12,13 @@ module.exports = (db) => {
 
   router.post("/", (req, res) => {
     //const values = [1, 1]
+    const userID = req.session['user_id']
     db.query(`
     SELECT * FROM favourites
     JOIN items ON items.id = item_id
-    WHERE user_id = 1
+    WHERE user_id = $1
     AND is_fav = TRUE;
-    `
+    `, [userID]
     )
       .then(data => {
         //const users = data.rows;

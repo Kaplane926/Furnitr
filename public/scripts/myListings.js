@@ -1,4 +1,5 @@
-function renderFavourites(){
+function renderListings(){
+
   $.ajax('/api/items/items', { method: 'POST' })
   .then(function(data){
     let html = ""
@@ -33,7 +34,7 @@ function renderFavourites(){
       alert(buttonId)
       $.ajax(`/api/removeItem/${itemId}`, { method: 'POST' })
       .then(function(){
-        renderFavourites()
+        renderListings()
       })
 
     })
@@ -43,6 +44,6 @@ function renderFavourites(){
 
 $(document).ready(function(){
 
-  renderFavourites()
+  renderListings()
 
 })

@@ -12,14 +12,15 @@ module.exports = (db) => {
 
   router.post("/:id", (req, res) => {
     console.log(req.params.id)
+    const userID = req.session['user_id']
     db.query(
         `
         UPDATE favourites
         SET is_fav = FALSE
-        WHERE user_id = 1
+        WHERE user_id = $1
         AND item_id = ${req.params.id};
 
-      `
+      `, [userID]
     )
     .then(()=> res.sendStatus(200))
     .catch(function(err){
