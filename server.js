@@ -51,7 +51,7 @@ const itemsRoutes = require("./routes/items");
 const searchRoutes = require("./routes/search_results");
 const removeItemRoutes = require("./routes/removeItem");
 const soldItemRoutes = require("./routes/soldItem");
-
+const getBuyers = require("./routes/getBuyers");
 
 
 // Mount all resource routes
@@ -68,6 +68,7 @@ app.use("/api/items", itemsRoutes(db));
 app.use("/api/search_results", searchRoutes(db));
 app.use("/api/removeItem", removeItemRoutes(db));
 app.use("/api/soldItem", soldItemRoutes(db));
+app.use("/api/getBuyers", getBuyers(db));
 
 
 
@@ -119,8 +120,13 @@ app.get("/furniture", (req, res) => {
 
 // messages
 
-app.get("/messages/:id", (req, res) => {
+app.get("/messages/:itemId/:contactId", (req, res) => {
   const id = req.params.id;
+  res.render(`messages`);
+});
+
+app.get("/getBuyers/:itemId", (req, res) => {
+  console.log("hello world");
   res.render(`messages`);
 });
 

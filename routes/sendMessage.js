@@ -10,19 +10,18 @@ const router  = express.Router();
 
 module.exports = (db) => {
 
-  router.post("/:id", (req, res) => {
-    const itemId = req.params.id;
+  router.post("/:itemId/:contactId", (req, res) => {
+    const itemId = req.params.itemId;
     const userId = req.session['user_id'];
+    const contactId = req.params.contactId;
+    console.log(`itemId ${itemId} userId ${userId} contactId ${contactId}`);
     const msg = req.body.data;
     const sql = `
     INSERT INTO messages (recipient_id, sender_id, item_id, message, msg_created)
-    SELECT i.seller_id, u.id, i.id, $1, CURRENT_DATE
-    FROM items i
-    INNER JOIN users u ON u.id = $2
-    WHERE i.id = $3;
+    VALUES ($1, $2, $3, $4, CURRENT_DATE);
     `;
 
-    db.query(sql, [msg, userId, itemId])
+    db.query(sql, [contactId, userId, itemId, msg])
       .then(data => {
         res.send(data);
       })

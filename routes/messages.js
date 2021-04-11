@@ -3,8 +3,10 @@ const router = express.Router();
 
 module.exports = (db) => {
 
-  router.post("/:id", (req, res) => {
-    const itemId = req.params.id;
+  router.post("/:itemId/:contactId", (req, res) => {
+    console.log('here');
+    const itemId = req.params.itemId;
+    const contactId = req.params.contactId;
     const userId = req.session['user_id'];
     const sql = `
     SELECT m.msg_id, m.message, m.msg_created,
@@ -15,10 +17,12 @@ module.exports = (db) => {
     FROM users u
     LEFT JOIN messages m ON m.recipient_id = u.id OR m.sender_id = u.id
     LEFT JOIN users s ON m.sender_id = s.id
-    WHERE u.id = $1 AND m.item_id = $2
+    WHERE ((u.role = 1 AND (m.recipient_id = u.id OR m.sender_id = u.id))
+    OR (u.role = 2 AND (m.recipient_id = $1 OR m.sender_id = $2)))
+    AND u.id = $3 AND m.item_id = $4
     `;
 
-    db.query(sql, [userId, itemId])
+    db.query(sql, [contactId, contactId, userId, itemId])
       .then(data => {
         res.send(data);
       })

@@ -16,13 +16,13 @@ function renderFavourites() {
         html += `<td><button id="${id}" class="remove" data-id="${row.id}">Remove</button></td>`;
 
       html += `<td>
-      <form method="GET" action="/messages/${row.id}"><button type="delete"
+      <form method="GET" action="/messages/${row.id}/${row.seller_id}"><button type="delete"
           class="msg">Messages</button></form></td>
       </tr>`
 
     id ++
     }
-    console.log(html)
+
     $('#seller-list').html(html)
   })
   .then(function(){

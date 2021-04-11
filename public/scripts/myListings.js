@@ -31,7 +31,7 @@ function renderListings() {
         html += `<td class="${itemClass}">${soldBtn}</td>
      `;
         html += `<td class="${itemClass}">
-      <form method="GET" action="/messages/${row.id}"><button type="delete"
+      <form method="GET" action="/messages/${row.id}/9999"><button type="delete"
           class="msg">Messages</button></form></td>
       </tr>`;
 
